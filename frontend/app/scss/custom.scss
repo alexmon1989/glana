@@ -1,0 +1,69 @@
+//
+// Custom Styles
+//
+
+// Custom
+@import "custom/custom";
+
+@import "settings/variables";
+
+.navbar-nav .nav-item .nav-link:hover, .navbar-nav .nav-item.active .nav-link {
+  color: $g-color-primary !important;
+}
+
+/* Hamburger */
+.hamburger {
+  padding: 0;
+}
+
+.hamburger-box,
+.hamburger-inner,
+.hamburger-inner::after,
+.hamburger-inner::before {
+  width: 22px;
+}
+
+.u-header__section--dark .hamburger-inner,
+.u-header__section--dark .hamburger-inner::after,
+.u-header__section--dark .hamburger-inner::before {
+  background-color: $g-color-primary;
+}
+
+.hamburger:hover .u-header__section--dark .hamburger-inner, .hamburger:hover
+.u-header__section--dark .hamburger-inner::after, .hamburger:hover
+.u-header__section--dark .hamburger-inner::before {
+  background-color: $g-color-primary;
+}
+
+.hamburger-box {
+  height: 14px;
+}
+
+.hamburger--slider .hamburger-inner {
+  top: 0;
+}
+
+.hamburger--slider .hamburger-inner:before {
+  top: 6px;
+}
+
+.hamburger--slider .hamburger-inner:after {
+  top: 12px;
+}
+
+.hamburger--slider.is-active .hamburger-inner:after {
+  -webkit-transform: translate3d(0, -12px, 0) rotate(-90deg);
+  transform: translate3d(0, -12px, 0) rotate(-90deg);
+}
+
+.g-theme-color-gray-light-v10 {
+  color: #999ba0 !important;
+}
+
+.g-height-90vh {
+  height: 90vh !important;
+}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+  color: #2c2c2c;
+}
