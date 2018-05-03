@@ -62,6 +62,7 @@
         var $this = $(el),
           setControls = $this.data('controls'),
           setLayout = $this.data('layout'),
+          setdefaultFilter = $this.data('default-filter') || '*',
           setXGap = $this.data('x-gap'),
           setYGap = $this.data('y-gap'),
           setAnimation = $this.data('animation'),
@@ -89,7 +90,7 @@
         $this.cubeportfolio({
           filters: setControls,
           layoutMode: setLayout,
-          defaultFilter: '*',
+          defaultFilter: setdefaultFilter,
           sortToPreventGaps: true,
           gapHorizontal: setXGap,
           gapVertical: setYGap,
