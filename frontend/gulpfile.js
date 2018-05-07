@@ -53,13 +53,10 @@ gulp.task('css', ['fonts', 'sass'], function () {
         config.srcDir + '/vendor/dzsparallaxer/dzsscroller/scroller.css',
         config.srcDir + '/vendor/dzsparallaxer/advancedscroller/plugin.css',
         config.srcDir + '/vendor/slick-carousel/slick/slick.css',
-        config.srcDir + '/vendor/hs-megamenu/src/hs.megamenu.css',
         config.srcDir + '/vendor/hamburgers/hamburgers.min.css',
         config.srcDir + '/vendor/cubeportfolio-full/cubeportfolio/css/cubeportfolio.min.css',
         config.srcDir + '/vendor/animate.css',
-        config.srcDir + '/css/unify-core.css',
-        config.srcDir + '/css/unify-components.css',
-        config.srcDir + '/css/unify-globals.css',
+        config.srcDir + '/vendor/custombox/custombox.min.css',
         config.srcDir + '/css/main.css'
     ])
         .pipe(concat('bundle.min.css'))
@@ -78,20 +75,26 @@ gulp.task('js', function () {
         config.srcDir + '/vendor/jquery-migrate/jquery-migrate.min.js',
         config.srcDir + '/vendor/popper.min.js',
         config.srcDir + '/vendor/bootstrap/bootstrap.min.js',
-        config.srcDir + '/vendor/hs-megamenu/src/hs.megamenu.js',
         config.srcDir + '/vendor/dzsparallaxer/dzsparallaxer.js',
         config.srcDir + '/vendor/dzsparallaxer/dzsscroller/scroller.js',
         config.srcDir + '/vendor/dzsparallaxer/advancedscroller/plugin.js',
-        config.srcDir + '/vendor/masonry/dist/masonry.pkgd.min.js',
         config.srcDir + '/vendor/imagesloaded/imagesloaded.pkgd.min.js',
         config.srcDir + '/vendor/slick-carousel/slick/slick.js',
         config.srcDir + '/vendor/cubeportfolio-full/cubeportfolio/js/jquery.cubeportfolio.min.js',
+        config.srcDir + '/vendor/jquery.form.js',
+        config.srcDir + '/vendor/jquery-validation/dist/jquery.validate.js',
+        config.srcDir + '/vendor/custombox/custombox.min.js',
+        config.srcDir + '/vendor/jquery.scrollTo.min.js',
         config.srcDir + '/js/hs.core.js',
         config.srcDir + '/js/components/hs.header.js',
         config.srcDir + '/js/helpers/hs.hamburgers.js',
         config.srcDir + '/js/components/hs.carousel.js',
         config.srcDir + '/js/components/hs.scroll-nav.js',
         config.srcDir + '/js/components/hs.cubeportfolio.js',
+        config.srcDir + '/js/helpers/hs.file-attachments.js',
+        config.srcDir + '/js/components/hs.validation.js',
+        config.srcDir + '/js/components/hs.modal-window.js',
+        config.srcDir + '/js/components/hs.go-to.js',
         config.srcDir + '/js/custom.js'
     ])
         .pipe(concat('bundle.min.js'))

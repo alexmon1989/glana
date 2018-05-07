@@ -11,7 +11,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="img/favicon.ico">
+    <link rel="shortcut icon" href="img/favicon.png">
     <!-- Google Fonts -->
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans%3A400%2C300%2C500%2C600%2C700%7CPlayfair+Display%7CRoboto%7CRaleway%7CSpectral%7CRubik">
     <!-- CSS Customization -->
@@ -61,6 +61,10 @@
     {% include "app/nunjucks/_partials/footer.njk" %}
     <!-- /FOOTER -->
 
+    <!-- MODAL FORM -->
+    {% include "app/nunjucks/_partials/modal_form.njk" %}
+    <!-- /MODAL FORM -->
+
     <a class="js-go-to u-go-to-v1" href="#!" data-type="fixed" data-position='{
      "bottom": 15,
      "right": 15
@@ -77,15 +81,6 @@
         // initialization of carousel
         $.HSCore.components.HSCarousel.init('.js-carousel');
 
-        // initialization of masonry
-        $('.masonry-grid').imagesLoaded().then(function () {
-            $('.masonry-grid').masonry({
-                columnWidth: '.masonry-grid-sizer',
-                itemSelector: '.masonry-grid-item',
-                percentPosition: true
-            });
-        });
-
         // initialization of HSScrollNav
         $.HSCore.components.HSScrollNav.init($('#js-scroll-nav'), {
             duration: 700
@@ -93,19 +88,70 @@
 
         // initialization of cubeportfolio
         $.HSCore.components.HSCubeportfolio.init('.cbp');
+
+        var forms = [$('#promo-form'), $('#promo-form-modal'), $('#contact-form')];
+        forms.forEach(function(item) {
+            item.ajaxForm({
+                beforeSubmit: function () {
+                    if (item.valid()) {
+                        item.find(':input').attr("disabled", true);
+                        return true;
+                    }
+                    return false;
+                },
+                success: function () {
+                    item.hide();
+                    item.next().show();
+                },
+                error: function () {
+                    alert('Ошибка сервера!');
+                    item.find(':input').attr("disabled", false);
+                }
+            });
+        });
+
+
+        $.HSCore.helpers.HSFileAttachments.init();
+
+        var validationOptions = {
+            rules: {
+                email: {
+                    required: true,
+                    email: true
+                },
+                message: {
+                    required: true,
+                    minlength: 10
+                },
+                file: {
+                    filesize: 5242880
+                }
+            },
+            messages: {
+                email: {
+                    required: 'Необходимо заполнить это поле',
+                    email: 'Поле должно содержать правильный E-Mail адрес'
+                },
+                message: {
+                    required: 'Необходимо заполнить это поле',
+                    minlength: 'Поле должно содержать минимум 10 символов'
+                }
+            }
+        };
+        $.HSCore.components.HSValidation.init('#promo-form', validationOptions);
+        $.HSCore.components.HSValidation.init('#promo-form-modal', validationOptions);
+        $.HSCore.components.HSValidation.init('#contact-form', validationOptions);
+
+        $.HSCore.components.HSModalWindow.init('[data-modal-target]');
+
+        // initialization of go to section
+        $.HSCore.components.HSGoTo.init('.js-go-to');
     });
 
     $(window).on('load', function () {
         // initialization of header
         $.HSCore.components.HSHeader.init($('#js-header'));
         $.HSCore.helpers.HSHamburgers.init('.hamburger');
-
-        // initialization of HSMegaMenu component
-        $('.js-mega-menu').HSMegaMenu({
-            event: 'hover',
-            pageContainer: $('.container'),
-            breakpoint: 991
-        });
     });
 </script>
 <!-- End JS Plugins Init. -->

@@ -49,6 +49,11 @@
     },
 
     initValidation: function (config) {
+
+        $.validator.addMethod('filesize', function (value, element, param) {
+            return this.optional(element) || (element.files[0].size <= param)
+        }, 'Размер файла должен быть максимум {0} Мбайт');
+
       //Variables
       var $self = this,
         collection = $self.pageCollection;
@@ -69,7 +74,7 @@
         }
 
         $.validator.setDefaults({
-          errorPlacement: config ? false : $self.errorPlacement,
+          errorPlacement: $self.errorPlacement,
           highlight: $self.highlight,
           unhighlight: $self.unHighlight
         });
@@ -88,7 +93,6 @@
     errorPlacement: function (error, element) {
       var $this = $(element),
         errorMsgClasses = $this.data('msg-classes');
-
       error.addClass(errorMsgClasses);
       error.appendTo(element.parents('.form-group'));
     },
