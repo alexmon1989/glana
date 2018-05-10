@@ -1,0 +1,115 @@
+{% load static %}
+
+<header id="js-header" class="u-header u-header--sticky-top u-header--toggle-section u-header--change-appearance"
+        data-header-fix-moment="200"
+        data-header-fix-effect="slide">
+    <div class="text-center text-lg-left u-header__section u-header__section--hidden u-header__section--light g-bg-white g-brd-bottom g-brd-gray-light-v4 g-py-20">
+        <div class="container">
+            <div class="row flex-lg-row align-items-center justify-content-lg-start">
+                <div class="col-6 col-sm-3 col-lg-2">
+                    <!-- Logo -->
+                    <a href="#!" class="js-go-to navbar-brand"
+                       data-type="static">
+                        <img class="img-fluid g-width-150" src="{% static 'img/logo/fregat_logo.png' %}" alt="Logo">
+                    </a>
+                    <!-- End Logo -->
+                </div>
+
+                <div class="col-6 col-sm-9 col-lg-10">
+                    <div class="row">
+                        <div class="col-sm g-brd-right--sm g-brd-gray-light-v4">
+                            <div class="g-pa-10--lg">
+                                <span class="g-valign-middle g-font-size-18 g-color-primary g-mr-5"><i class="fa fa-phone"></i></span>
+                                <span class="text-uppercase g-font-size-13">Звоните</span>
+                                <strong class="d-block g-pl-25"><a class="g-color-main" href="tel:+38 (093) 123-45-67">+38 (093) 123-45-67</a></strong>
+                            </div>
+                        </div>
+
+                        <div class="col-sm g-hidden-lg-down g-brd-right--sm g-brd-gray-light-v4">
+                            <div class="g-pa-10--lg">
+                                <span class="g-valign-middle g-font-size-18 g-color-primary g-mr-5"><i class="fa fa-clock-o"></i></span>
+                                <span class="text-uppercase g-font-size-13">Мы открыты</span>
+                                <strong class="d-block g-pl-25">Пн-Пт: 09.00 - 18.00</strong>
+                            </div>
+                        </div>
+
+                        <div class="col-sm g-hidden-sm-down g-brd-right--sm g-brd-gray-light-v4">
+                            <div class="g-pa-10--lg">
+                                <span class="g-valign-middle g-font-size-18 g-color-primary g-mr-5"><i class="fa fa-envelope"></i></span>
+                                <span class="text-uppercase g-font-size-13">Напишите нам</span>
+                                <strong class="d-block g-pl-25">info@fregat.in.ua</strong>
+                            </div>
+                        </div>
+
+                        <div class="col-sm g-hidden-sm-down">
+                            <ul class="list-inline mb-0 g-pa-10--lg">
+                                <li class="list-inline-item g-valign-middle g-mx-3">
+                                    <a class="d-block u-icon-v3 u-icon-size--sm g-rounded-50x g-bg-gray-light-v4 g-color-gray-dark-v4 g-bg-primary--hover g-color-white--hover" href="#!"><i class="fa fa-facebook g-font-size-default"></i></a>
+                                </li>
+                                <li class="list-inline-item g-valign-middle g-mx-3">
+                                    <a class="d-block u-icon-v3 u-icon-size--sm g-rounded-50x g-bg-gray-light-v4 g-color-gray-dark-v4 g-bg-primary--hover g-color-white--hover" href="#!"><i class="fa fa-twitter g-font-size-default"></i></a>
+                                </li>
+                                <li class="list-inline-item g-valign-middle g-mx-3">
+                                    <a class="d-block u-icon-v3 u-icon-size--sm g-rounded-50x g-bg-gray-light-v4 g-color-gray-dark-v4 g-bg-primary--hover g-color-white--hover" href="#!"><i class="fa fa-instagram g-font-size-default"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="u-header__section u-header__section--dark g-bg-gray-dark-v1 g-py-15"
+         data-header-fix-moment-classes="u-shadow-v18">
+        <nav class="navbar navbar-expand-lg py-0">
+            <div class="container">
+                <!-- Navigation -->
+                <div class="collapse navbar-collapse align-items-center flex-sm-row g-mr-40--sm" id="navBar">
+                    <ul id="js-scroll-nav" class="navbar-nav text-uppercase g-font-weight-700 g-py-10--md mr-auto">
+                        <li class="nav-item g-mr-15--lg g-mb-7 g-mb-0--lg active">
+                            <a href="#home" class="nav-link g-color-primary--hover p-0">Главная <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item g-mx-15--lg g-mb-7 g-mb-0--lg">
+                            <a href="#about" class="nav-link g-color-primary--hover p-0">О нас</a>
+                        </li>
+                        <li class="nav-item g-mx-15--lg g-mb-7 g-mb-0--lg">
+                            <a href="#products" class="nav-link g-color-primary--hover p-0">Продукция</a>
+                        </li>
+                        <li class="nav-item g-mx-15--lg g-mb-7 g-mb-0--lg">
+                            <a href="#job_scheme" class="nav-link g-color-primary--hover p-0">Схема работы</a>
+                        </li>
+                        <li class="nav-item g-mx-15--lg g-mb-7 g-mb-0--lg">
+                            <a href="#delivery" class="nav-link g-color-primary--hover p-0">Оплата и доставка</a>
+                        </li>
+                        <li class="nav-item g-mx-15--lg g-mb-7 g-mb-0--lg">
+                            <a href="#contacts" class="nav-link g-color-primary--hover p-0">Контакты</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- End Navigation -->
+
+                <!-- Search -->
+                <div class="g-hidden-md-down text-uppercase g-valign-middle">
+                    <a href="#price-request" data-modal-target="#price-request" data-modal-effect="fadein" class="btn btn-md text-uppercase u-btn-primary g-font-weight-700 g-font-size-12 g-brd-none g-rounded-4 g-py-12 g-px-15">Заказать просчёт</a>
+                </div>
+                <!-- End Search -->
+
+                <!-- Responsive Toggle Button -->
+                <button class="navbar-toggler btn g-pos-rel g-line-height-1 g-brd-none g-pa-0 g-pos-abs g-top-minus-8 g-right-0" type="button"
+                        aria-label="Toggle navigation"
+                        aria-expanded="false"
+                        aria-controls="navBar"
+                        data-toggle="collapse"
+                        data-target="#navBar">
+                <span class="hamburger hamburger--slider">
+                  <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                  </span>
+                </span>
+                </button>
+                <!-- End Responsive Toggle Button -->
+            </div>
+        </nav>
+    </div>
+</header>
