@@ -98,7 +98,6 @@ gulp.task('js', function () {
         config.srcDir + '/js/custom.js'
     ])
         .pipe(concat('bundle.min.js'))
-        .pipe(gutil.env.type === 'production' ? uglify() : gutil.noop())
         .pipe(gulp.dest(config.srcDir + '/js/'))
         .pipe(browserSync.reload({stream: true}));
 });
@@ -178,7 +177,7 @@ gulp.task('default', ['watch', 'css', 'js', 'nunjucks', 'browser-sync']);
 // Build
 //
 
-gulp.task('build', ['clearcache', 'removedist', 'js', 'css', 'nunjucks'], function () {
+gulp.task('build', ['clearcache', 'removedist', 'js', 'css', 'nunjucks', 'imagemin'], function () {
 
 
     const buildCss = gulp.src([
@@ -187,5 +186,18 @@ gulp.task('build', ['clearcache', 'removedist', 'js', 'css', 'nunjucks'], functi
         .pipe(cleanCSS({level: {1: {specialComments: 0}}}))
         .pipe(gulp.dest(config.distDir + '/css'));
 
+    const buildJs = gulp.src([
+        config.srcDir + '/js/bundle.min.js'
+    ])
+        .pipe(uglify())
+        .pipe(gulp.dest(config.distDir + '/js'));
+
+    const buildFonts = gulp.src([
+        config.srcDir + '/fonts/*.*'
+    ]).pipe(gulp.dest(config.distDir + '/fonts'));
+
+    const buildFiles = gulp.src([
+        config.srcDir + '/*.html'
+    ]).pipe(gulp.dest('dist'));
 
 });
