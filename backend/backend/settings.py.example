@@ -45,6 +45,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -53,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',
 ]
 
 ROOT_URLCONF = 'backend.urls'
@@ -191,3 +193,18 @@ CKEDITOR_CONFIGS = {
         'allowedContent': True,
     }
 }
+
+THUMBNAIL_ALIASES = {
+    '': {
+        'product_sm': {'size': (400, 270), 'crop': True},
+        'product_lg': {'size': (900, 600), 'crop': False},
+    },
+}
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': 'D:/projects/fregat.in.ua_landing/cache',
+    }
+}
+CACHE_MIDDLEWARE_SECONDS = 24 * 60 * 60

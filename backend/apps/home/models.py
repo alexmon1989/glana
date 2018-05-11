@@ -3,7 +3,7 @@ import string
 
 from django.db import models
 from easy_thumbnails.fields import ThumbnailerImageField
-from backend.abstract_models import TimeStampedModel
+from backend.abstract_models import TimeStampedModel, CacheClearModel
 
 
 class ProductTypeManager(models.Manager):
@@ -12,7 +12,7 @@ class ProductTypeManager(models.Manager):
         return super(ProductTypeManager, self).get_queryset().filter(is_enabled=True)
 
 
-class ProductType(TimeStampedModel):
+class ProductType(TimeStampedModel, CacheClearModel):
     """Модель типа продукта."""
     title = models.CharField('Название', max_length=255)
     slug = models.SlugField(
@@ -48,7 +48,7 @@ def upload_to(instance, filename):
     return '/'.join(['products', ''.join(random.choices(string.ascii_uppercase + string.digits, k=2)), filename])
 
 
-class Product(TimeStampedModel):
+class Product(TimeStampedModel, CacheClearModel):
     """Модель продукта."""
     title = models.CharField('Название', max_length=255)
     short_description = models.CharField('Краткое описание', max_length=255)
@@ -66,7 +66,6 @@ class Product(TimeStampedModel):
         return self.title
 
     def get_types_string(self):
-        print(' '.join(self.types.values_list('slug')[0]))
         return ' '.join(self.types.values_list('slug')[0])
 
     class Meta:

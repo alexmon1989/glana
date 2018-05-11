@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.cache import cache
 
 
 class SeoModel(models.Model):
@@ -16,6 +17,16 @@ class TimeStampedModel(models.Model):
     """Абстрактный класс модели, содержащий описания полей created, modified."""
     created_at = models.DateTimeField('Создано', auto_now_add=True)
     updated_at = models.DateTimeField('Обновлено', auto_now=True)
+
+    class Meta:
+        abstract = True
+
+
+class CacheClearModel(models.Model):
+    """Базовая модель, очищающая кеш при сохранении."""
+    def save(self, *args, **kwargs):
+        cache.clear()
+        return super(CacheClearModel, self).save(*args, **kwargs)
 
     class Meta:
         abstract = True
