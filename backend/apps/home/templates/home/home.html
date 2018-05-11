@@ -5,12 +5,15 @@
 
 <head>
     <!-- Title -->
-    <title>Полиграфия "Фрегат"</title>
+    <title>{{ page_data.meta_title }}</title>
 
     <!-- Required Meta Tags Always Come First -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <meta name="keywords" content="{{ page_data.meta_keywords }}"/>
+    <meta name="description" content="{{ page_data.meta_description }}"/>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="{% static 'img/favicon.png' %}">

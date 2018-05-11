@@ -3,7 +3,7 @@ import string
 
 from django.db import models
 from easy_thumbnails.fields import ThumbnailerImageField
-from backend.abstract_models import TimeStampedModel, CacheClearModel
+from backend.abstract_models import TimeStampedModel, CacheClearModel, SeoModel
 
 
 class ProductTypeManager(models.Manager):
@@ -89,3 +89,13 @@ class ContactData(CacheClearModel):
     class Meta:
         verbose_name = 'Контактные данные'
         verbose_name_plural = 'Контактные данные'
+
+
+class PageData(SeoModel, TimeStampedModel):
+    """Модель данных страницы (метаданные и т.д.)."""
+    def __str__(self):
+        return 'Данные страницы'
+
+    class Meta:
+        verbose_name = 'Данные страницы'
+        verbose_name_plural = 'Данные страницы'

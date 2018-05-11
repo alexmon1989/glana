@@ -1,5 +1,5 @@
 from django.views.generic.base import TemplateView
-from .models import ProductType, Product, ContactData
+from .models import ProductType, Product, ContactData, PageData
 
 
 class HomeView(TemplateView):
@@ -12,5 +12,6 @@ class HomeView(TemplateView):
         context['product_types'] = ProductType.objects.enabled()
         context['products'] = Product.objects.enabled()
         context['contact_data'] = ContactData.objects.first()
+        context['page_data'] = PageData.objects.first()
 
         return context

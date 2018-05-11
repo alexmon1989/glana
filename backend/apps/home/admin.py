@@ -1,6 +1,6 @@
 from django.contrib import admin
 from singlemodeladmin import SingleModelAdmin
-from .models import Product, ProductType, ContactData
+from .models import Product, ProductType, ContactData, PageData
 
 
 @admin.register(ProductType)
@@ -24,4 +24,10 @@ class ProductAdmin(admin.ModelAdmin):
 @admin.register(ContactData)
 class ContactDataAdmin(SingleModelAdmin):
     """Класс для описания интерфейса администрирования контактных данных."""
-    list_display = ('contact_email', 'form_email', 'phone', 'fb_link', 'instagram_link', 'twitter_link')
+    pass
+
+
+@admin.register(PageData)
+class PageDataAdmin(SingleModelAdmin):
+    """Класс для описания интерфейса администрирования данных страницы."""
+    pass
