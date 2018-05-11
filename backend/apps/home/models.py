@@ -72,3 +72,20 @@ class Product(TimeStampedModel, CacheClearModel):
         verbose_name = 'Продукт'
         verbose_name_plural = 'Продукция'
         ordering = ('title',)
+
+
+class ContactData(CacheClearModel):
+    """Модель контактных данных"""
+    contact_email = models.EmailField('E-Mail для контактов')
+    form_email = models.EmailField('E-Mail для форм', max_length=255)
+    phone = models.CharField('Телефон', max_length=255)
+    fb_link = models.URLField('Ссылка Facebook', null=True, blank=True)
+    instagram_link = models.URLField('Ссылка Instagram', null=True, blank=True)
+    twitter_link = models.URLField('Ссылка Twitter', null=True, blank=True)
+
+    def __str__(self):
+        return 'Контактные данные'
+
+    class Meta:
+        verbose_name = 'Контактные данные'
+        verbose_name_plural = 'Контактные данные'

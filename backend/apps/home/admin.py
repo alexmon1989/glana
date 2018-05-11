@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Product, ProductType
+from singlemodeladmin import SingleModelAdmin
+from .models import Product, ProductType, ContactData
 
 
 @admin.register(ProductType)
@@ -18,3 +19,9 @@ class ProductAdmin(admin.ModelAdmin):
     search_fields = ('title',)
     list_editable = ('is_enabled',)
     list_filter = ('types',)
+
+
+@admin.register(ContactData)
+class ContactDataAdmin(SingleModelAdmin):
+    """Класс для описания интерфейса администрирования контактных данных."""
+    list_display = ('contact_email', 'form_email', 'phone', 'fb_link', 'instagram_link', 'twitter_link')
