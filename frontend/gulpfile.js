@@ -201,3 +201,14 @@ gulp.task('build', ['clearcache', 'removedist', 'js', 'css', 'nunjucks', 'imagem
     ]).pipe(gulp.dest('dist'));
 
 });
+
+
+// Минификация загружаемых изображений товаров
+
+gulp.task('imagemin-products', function () {
+    return gulp.src([
+        '../media/products/**/*.*'
+    ])
+        .pipe(imagemin())
+        .pipe(gulp.dest('../media/products/'));
+});
