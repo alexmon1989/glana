@@ -17,7 +17,7 @@
             </div>
 
             <div class="col-lg-8">
-                <form id="contact-form" method="get">
+                <form id="contact-form" method="post" action="/order">{% csrf_token %}
                     <div class="row">
                         <div class="col-lg-12 form-group g-mb-20">
                             <input name="username" data-error-class="u-has-error-v1" class="form-control g-font-size-default g-color-gray-dark-v5 g-placeholder-inherit g-bg-gray-light-v5 g-brd-gray-light-v5 g-brd-primary--focus g-color-gray-dark-v5 g-rounded-4 g-py-13 g-px-12" placeholder="Ваше имя" type="text">

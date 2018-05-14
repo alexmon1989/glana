@@ -10,7 +10,7 @@
                         <h3 class="h6 g-color-black g-font-weight-600 text-uppercase text-center g-mb-25">Рассчитать стоимость заказа</h3>
 
                         <!-- Promo Block - Form -->
-                        <form id="promo-form" method="post" enctype="multipart/form-data">
+                        <form id="promo-form" method="post" enctype="multipart/form-data" action="/order">{% csrf_token %}
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group g-mb-10 g-mb-20--md">

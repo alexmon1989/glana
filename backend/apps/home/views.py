@@ -1,5 +1,7 @@
 from django.views.generic.base import TemplateView
 from .models import ProductType, Product, ContactData, PageData
+from django.views.generic.edit import FormView
+from .forms import OrderForm
 
 
 class HomeView(TemplateView):
@@ -15,3 +17,14 @@ class HomeView(TemplateView):
         context['page_data'] = PageData.objects.first()
 
         return context
+
+
+class OrderView(FormView):
+    """Отправляет данные о просчёте заказа."""
+    http_method_names = ('post',)
+    form_class = OrderForm
+    success_url = '/'
+
+    def form_valid(self, form):
+        form.send_email()
+        return super().form_valid(form)

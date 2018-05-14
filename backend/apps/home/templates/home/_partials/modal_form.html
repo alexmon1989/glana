@@ -6,7 +6,7 @@
     <h4 class="g-mb-20">Заказать просчёт</h4>
     <p>Пожалуйста, заполните форму ниже и мы свяжемся с вами для уточнения деталей:</p>
 
-    <form id="promo-form-modal" method="post" enctype="multipart/form-data">
+    <form id="promo-form-modal" method="post" enctype="multipart/form-data" action="/order">{% csrf_token %}
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group g-mb-10 g-mb-20--md">
