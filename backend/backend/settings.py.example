@@ -209,9 +209,18 @@ CACHES = {
 }
 CACHE_MIDDLEWARE_SECONDS = 24 * 60 * 60
 
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_SUBJECT_PREFIX = '[fregat.in.ua] '
 SERVER_EMAIL = 'test@test.org'
 DEFAULT_FROM_EMAIL = 'test@test.org'
 MANAGERS = (('Test', 'test@test.org'),)
 ADMINS = (('Test', 'test@test.org'),)
+
+# REDIS settings
+REDIS_HOST = 'localhost'
+REDIS_PORT = '6379'
+BROKER_URL = 'redis://' + REDIS_HOST + ':' + REDIS_PORT + '/0'
+BROKER_TRANSPORT_OPTIONS = {'visibility_timeout': 3600}
+CELERY_RESULT_BACKEND = 'redis://' + REDIS_HOST + ':' + REDIS_PORT + '/0'
+CELERY_TASK_SERIALIZER = 'pickle'
+CELERY_ACCEPT_CONTENT = ['pickle']
