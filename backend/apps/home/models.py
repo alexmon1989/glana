@@ -93,6 +93,8 @@ class ContactData(CacheClearModel):
 
 class PageData(SeoModel, TimeStampedModel):
     """Модель данных страницы (метаданные и т.д.)."""
+    ga_html = models.TextField('HTML-код Google Analytics', default=None, null=True, blank=True)
+
     def __str__(self):
         return 'Данные страницы'
 
