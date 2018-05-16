@@ -5,10 +5,9 @@ services:
     # restart: always
     build: .
     container_name: fregat_web
-    command: bash -c "python manage.py makemigrations && python manage.py migrate && gunicorn backend.wsgi -b 0.0.0.0:8000 -w 3"
+    command: /bin/sh -c "python manage.py makemigrations && python manage.py migrate && gunicorn backend.wsgi -b 0.0.0.0:8000 -w 3"
     volumes:
-      - ./backend:/code
-      - ./frontend:/frontend
+      - ./frontend:/frontend:ro
       - ./static:/static
       - ./media:/media
       - ./database:/database
@@ -28,7 +27,6 @@ services:
     container_name: fregat_celery
     command: celery worker -A backend --loglevel=info
     volumes:
-      - ./backend:/code
       - ./database:/database
     depends_on:
       - redis
