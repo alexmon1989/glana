@@ -66,7 +66,7 @@ class Product(TimeStampedModel, CacheClearModel):
         return self.title
 
     def get_types_string(self):
-        return ' '.join(self.types.values_list('slug')[0])
+        return ' '.join([x[0] for x in self.types.values_list('slug')])
 
     class Meta:
         verbose_name = 'Продукт'
