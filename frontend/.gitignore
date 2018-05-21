@@ -5,3 +5,4 @@
 app/*.html
 app/fonts/
 dist/
+!/app/vendor/jquery-validation/dist/
