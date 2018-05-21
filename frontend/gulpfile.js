@@ -200,6 +200,18 @@ gulp.task('build', ['clearcache', 'removedist', 'js', 'css', 'nunjucks', 'imagem
         config.srcDir + '/*.html'
     ]).pipe(gulp.dest('dist'));
 
+    // Другие файлы для сборки
+    gulp.src([
+        config.srcDir + '/vendor/dzsparallaxer/dzsscroller/styleimg/**/*.*'
+    ]).pipe(gulp.dest(config.distDir + '/css/styleimg/'));
+    gulp.src([
+        config.srcDir + '/vendor/dzsparallaxer/advancedscroller/bokeh/**/*.*'
+    ]).pipe(gulp.dest(config.distDir + '/css/bokeh/'));
+    gulp.src([
+        config.srcDir + '/vendor/dzsparallaxer/advancedscroller/img/**/*.*'
+    ]).pipe(gulp.dest(config.distDir + '/css/img/'));
+
+
 });
 
 
