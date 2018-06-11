@@ -18,10 +18,10 @@
                 <div class="col-6 col-sm-9 col-lg-10">
                     <div class="row">
                         <div class="col-sm g-brd-right--sm g-brd-gray-light-v4">
-                            <div class="g-pa-10--lg">
+                            <div class="g-py-10--lg g-pl-10--lg">
                                 <span class="g-valign-middle g-font-size-18 g-color-primary g-mr-5"><i class="fa fa-phone"></i></span>
                                 <span class="text-uppercase g-font-size-13">Звоните</span>
-                                <strong class="d-block g-pl-25"><a class="g-color-main" href="tel:{{ contact_data.phone }}">{{ contact_data.phone }}</a></strong>
+                                <strong class="d-block"><a class="g-color-main" href="tel:{{ contact_data.phone }}">{{ contact_data.phone }}</a>{% if contact_data.operator == 1 %} (Киевстар){% endifcd .. %}</strong>
                             </div>
                         </div>
 

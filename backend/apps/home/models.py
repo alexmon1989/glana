@@ -79,6 +79,7 @@ class ContactData(CacheClearModel):
     contact_email = models.EmailField('E-Mail для контактов')
     form_email = models.EmailField('E-Mail для форм', max_length=255)
     phone = models.CharField('Телефон', max_length=255)
+    operator = models.SmallIntegerField('Оператор', choices=((1, 'Киевстар'),), default=1, null=True, blank=True)
     fb_link = models.URLField('Ссылка Facebook', null=True, blank=True)
     instagram_link = models.URLField('Ссылка Instagram', null=True, blank=True)
     twitter_link = models.URLField('Ссылка Twitter', null=True, blank=True)
