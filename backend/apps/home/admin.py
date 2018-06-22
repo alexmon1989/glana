@@ -19,6 +19,7 @@ class ProductAdmin(admin.ModelAdmin):
     search_fields = ('title',)
     list_editable = ('is_enabled',)
     list_filter = ('types',)
+    prepopulated_fields = {"slug": ("title",)}
 
 
 @admin.register(ContactData)

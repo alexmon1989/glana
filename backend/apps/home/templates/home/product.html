@@ -1,0 +1,9 @@
+{% extends 'home/home.html' %}
+
+{% block extra_scripts %}
+    <script>
+        $(window).load(function() {
+            $(".product-{{ product.slug }}")[0].click();
+        });
+    </script>
+{% endblock %}

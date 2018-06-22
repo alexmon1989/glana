@@ -3,6 +3,7 @@ import string
 
 from django.db import models
 from easy_thumbnails.fields import ThumbnailerImageField
+from ckeditor_uploader.fields import RichTextUploadingField
 from backend.abstract_models import TimeStampedModel, CacheClearModel, SeoModel
 
 
@@ -51,7 +52,9 @@ def upload_to(instance, filename):
 class Product(TimeStampedModel, CacheClearModel):
     """Модель продукта."""
     title = models.CharField('Название', max_length=255)
+    slug = models.SlugField('Slug', null=True)
     short_description = models.CharField('Краткое описание', max_length=255)
+    long_description = RichTextUploadingField('Длинное описание', blank=True, null=True)
     image = ThumbnailerImageField(
         verbose_name='Изображение',
         upload_to=upload_to,
