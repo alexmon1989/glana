@@ -44,7 +44,7 @@
                     <div class="u-block-hover g-parent">
                         {% if product.image %}
                             <a class="cbp-singlePageInline d-block u-bg-overlay g-bg-black-opacity-0_1--after product-{{ product.slug }}"
-                               href="{% url 'product-description' pk=product.pk %}"
+                               href="{% url 'product-description' slug=product.slug %}"
                                rel="nofollow">
                                 <img class="img-fluid u-block-hover__main--zoom-v1"
                                      src="{{ product.image.product_sm.url }}"
@@ -62,7 +62,7 @@
                     </div>
                     <div class="g-bg-white text-center g-pa-15 g-min-height-115">
                         <a class="cbp-singlePageInline product-{{ product.slug }}"
-                           href="{% url 'product-description' pk=product.pk %}"
+                           href="{% url 'product-description' slug=product.slug %}"
                            rel="nofollow">
                             <h3 class="h6 g-color-black g-font-weight-700 mb-1 cbp-l-grid-products-title">{{ product.title }}</h3>
                         </a>
