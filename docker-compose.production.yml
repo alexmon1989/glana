@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  web:
+    # restart: always
+    build: .
+    container_name: fregat_web
+    command: /bin/sh -c "python manage.py makemigrations && python manage.py migrate && gunicorn backend.wsgi -b 0.0.0.0:8000 -w 3"
+    volumes:
+      - ./frontend:/frontend:ro
+      - ./static:/static
+      - ./media:/media
+      - ./database:/database
+    ports:
+      - "8000:8000"
+  redis:
+    # restart: always
+    image: redis:latest
+    container_name: fregat_redis
+    ports:
+      - "6379:6379"
+  celery:
+    # restart: always
+    build: .
+    environment:
+      - C_FORCE_ROOT=true
+    container_name: fregat_celery
+    command: celery -A backend worker --loglevel=info
+    volumes:
+      - ./database:/database
+    depends_on:
+      - redis
