@@ -1,0 +1,26 @@
+{% load project_extras %}
+{% load i18n %}
+
+{% get_current_language as LANGUAGE_CODE %}
+<div class="col-sm-1 g-py-10--lg">
+    <div class="g-pt-5 g-pt-15--md g-nowrap">
+        <ul class="u-list-inline g-font-size-15">
+            {% spaceless %}
+            <li class="list-inline-item g-mr-5">
+                {% if LANGUAGE_CODE != 'uk' %}
+                    <a class="g-text-underline--none--hover" href="{% change_language 'uk' %}">🇺🇦&nbsp;UA</a>
+                {% else %}
+                    🇺🇦&nbsp;UA
+                {% endif %}
+            </li>
+            <li class="list-inline-item g-brd-left g-brd-gray-light-v1 g-pl-5">
+                {% if LANGUAGE_CODE != 'ru' %}
+                    <a href="{% change_language 'ru' %}">RU</a>
+                {% else %}
+                    RU
+                {% endif %}
+            </li>
+            {% endspaceless %}
+        </ul>
+    </div>
+</div>

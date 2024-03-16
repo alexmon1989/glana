@@ -89,6 +89,7 @@ gulp.task('js', function () {
         config.srcDir + '/js/components/hs.header.js',
         config.srcDir + '/js/helpers/hs.hamburgers.js',
         config.srcDir + '/js/components/hs.carousel.js',
+        config.srcDir + '/js/components/hs.dropdown.js',
         config.srcDir + '/js/components/hs.scroll-nav.js',
         config.srcDir + '/js/components/hs.cubeportfolio.js',
         config.srcDir + '/js/helpers/hs.file-attachments.js',
