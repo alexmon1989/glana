@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 
 <header id="js-header" class="u-header u-header--sticky-top u-header--toggle-section u-header--change-appearance"
         data-header-fix-moment="200"
@@ -20,7 +21,7 @@
                         <div class="col-sm g-brd-right--sm g-brd-gray-light-v4">
                             <div class="g-py-10--lg g-pl-10--lg">
                                 <span class="g-valign-middle g-font-size-18 g-color-primary g-mr-5"><i class="fa fa-phone"></i></span>
-                                <span class="text-uppercase g-font-size-13">Звоните</span>
+                                <span class="text-uppercase g-font-size-13">{% trans 'Дзвоніть' %}</span>
                                 <strong class="d-block"><a class="g-color-main" href="tel:{{ contact_data.phone }}">{{ contact_data.phone }}</a></strong>
                             </div>
                         </div>
@@ -28,7 +29,7 @@
                         <div class="col-sm g-hidden-lg-down g-brd-right--sm g-brd-gray-light-v4">
                             <div class="g-pa-10--lg">
                                 <span class="g-valign-middle g-font-size-18 g-color-primary g-mr-5"><i class="fa fa-clock-o"></i></span>
-                                <span class="text-uppercase g-font-size-13">Мы открыты</span>
+                                <span class="text-uppercase g-font-size-13">{% trans 'Ми відкриті' %}</span>
                                 <strong class="d-block g-pl-25">Пн-Пт: 09.00 - 18.00</strong>
                             </div>
                         </div>
@@ -36,7 +37,7 @@
                         <div class="col-sm g-hidden-sm-down g-brd-right--sm g-brd-gray-light-v4">
                             <div class="g-pa-10--lg">
                                 <span class="g-valign-middle g-font-size-18 g-color-primary g-mr-5"><i class="fa fa-envelope"></i></span>
-                                <span class="text-uppercase g-font-size-13">Напишите нам</span>
+                                <span class="text-uppercase g-font-size-13">{% trans 'Напишіть нам' %}</span>
                                 <strong class="d-block g-pl-25"><a class="g-color-main" href="mailto:{{ contact_data.contact_email }}">{{ contact_data.contact_email }}</a></strong>
                             </div>
                         </div>
@@ -67,22 +68,22 @@
                 <div class="collapse navbar-collapse align-items-center flex-sm-row g-mr-40--sm" id="navBar">
                     <ul id="js-scroll-nav" class="navbar-nav text-uppercase g-font-weight-700 g-py-10--md mr-auto">
                         <li class="nav-item g-mr-15--lg g-mb-7 g-mb-0--lg active">
-                            <a href="#home" class="nav-link g-color-primary--hover p-0">Главная <span class="sr-only">(current)</span></a>
+                            <a href="#home" class="nav-link g-color-primary--hover p-0">{% trans 'Головна' %} <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item g-mx-15--lg g-mb-7 g-mb-0--lg">
-                            <a href="#products" class="nav-link g-color-primary--hover p-0">Продукция</a>
+                            <a href="#products" class="nav-link g-color-primary--hover p-0">{% trans 'Продукція' %}</a>
                         </li>
                         <li class="nav-item g-mx-15--lg g-mb-7 g-mb-0--lg">
-                            <a href="#about" class="nav-link g-color-primary--hover p-0">О нас</a>
+                            <a href="#about" class="nav-link g-color-primary--hover p-0">{% trans 'Про нас' %}</a>
                         </li>
                         <li class="nav-item g-mx-15--lg g-mb-7 g-mb-0--lg">
-                            <a href="#job_scheme" class="nav-link g-color-primary--hover p-0">Схема работы</a>
+                            <a href="#job_scheme" class="nav-link g-color-primary--hover p-0">{% trans 'Схема роботи' %}</a>
                         </li>
                         <li class="nav-item g-mx-15--lg g-mb-7 g-mb-0--lg">
-                            <a href="#delivery" class="nav-link g-color-primary--hover p-0">Оплата и доставка</a>
+                            <a href="#delivery" class="nav-link g-color-primary--hover p-0">{% trans 'Оплата і доставка' %}</a>
                         </li>
                         <li class="nav-item g-mx-15--lg g-mb-7 g-mb-0--lg">
-                            <a href="#contacts" class="nav-link g-color-primary--hover p-0">Контакты</a>
+                            <a href="#contacts" class="nav-link g-color-primary--hover p-0">{% trans 'Контакти' %}</a>
                         </li>
                     </ul>
                 </div>
@@ -90,7 +91,10 @@
 
                 <!-- Search -->
                 <div class="g-hidden-md-down text-uppercase g-valign-middle">
-                    <a href="#price-request" data-modal-target="#price-request" data-modal-effect="fadein" class="btn btn-md text-uppercase u-btn-primary g-font-weight-700 g-font-size-12 g-brd-none g-rounded-4 g-py-12 g-px-15">Заказать просчёт</a>
+                    <a href="#price-request"
+                       data-modal-target="#price-request"
+                       data-modal-effect="fadein"
+                       class="btn btn-md text-uppercase u-btn-primary g-font-weight-700 g-font-size-12 g-brd-none g-rounded-4 g-py-12 g-px-15">{% trans 'Замовити розрахунок' %}</a>
                 </div>
                 <!-- End Search -->
 
