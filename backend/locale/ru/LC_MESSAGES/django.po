@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-16 18:04+0000\n"
+"POT-Creation-Date: 2024-03-23 21:04+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
+
 #: apps/home/templates/home/_partials/header.html:24
 msgid "Дзвоніть"
 msgstr "Звоните"
@@ -36,6 +37,7 @@ msgid "Головна"
 msgstr "Главная"
 
 #: apps/home/templates/home/_partials/header.html:74
+#: apps/home/templates/home/_partials/products.html:8
 msgid "Продукція"
 msgstr "Продукция"
 
@@ -58,6 +60,152 @@ msgstr "Контакты"
 #: apps/home/templates/home/_partials/header.html:97
 msgid "Замовити розрахунок"
 msgstr "Заказать просчёт"
+
+#: apps/home/templates/home/_partials/parallaxer.html:10
+#, python-format
+msgid ""
+"Щоб отримати <span class=\"g-color-primary\">знижку 15%</span>, подзвоніть "
+"нам по телефону"
+msgstr ""
+"Чтобы получить <span class=\"g-color-primary\">скидку 15%</span>, позвоните "
+"нам по номеру"
+
+#: apps/home/templates/home/_partials/parallaxer.html:10
+msgid "або залиште заявку"
+msgstr "или оставьте заявку"
+
+#: apps/home/templates/home/_partials/parallaxer.html:15
+msgid "Залишити заявку"
+msgstr "Оставить заявку"
+
+#: apps/home/templates/home/_partials/products.html:9
+msgid "Розробимо дизайн та надрукуємо для вас таку продукцію"
+msgstr "Разработаем дизайн и напечатаем для вас такую продукцию"
+
+#: apps/home/templates/home/_partials/promo.html:11
+msgid "Розрахувати вартість замовлення"
+msgstr "Рассчитать стоимость заказа"
+
+#: apps/home/templates/home/_partials/promo.html:20
+msgid "Ім'я"
+msgstr "Имя"
+
+#: apps/home/templates/home/_partials/promo.html:29
+msgid "Телефон"
+msgstr "Телефон"
+
+#: apps/home/templates/home/_partials/promo.html:48
+msgid "Повідомлення"
+msgstr "Сообщение"
+
+#: apps/home/templates/home/_partials/promo.html:57
+msgid "Огляд"
+msgstr "Обзор"
+
+#: apps/home/templates/home/_partials/promo.html:65
+msgid "Відправити запит"
+msgstr "Отправить запрос"
+
+#: apps/home/templates/home/_partials/promo.html:76
+msgid ""
+"\n"
+"                                    <strong>Дякуємо!</strong> Ваше "
+"повідомлення було відправлене. Найближчим часом менеджер зв'яжеться з вами.\n"
+"                                  "
+msgstr ""
+"\n"
+"                                  <strong>Спасибо!</strong> Ваше сообщение "
+"было отправлено. В ближайшее время мененджер свяжется с вами.\n"
+"                                  "
+
+#: apps/home/templates/home/_partials/promo.html:89
+msgid "з доставкою по всій Україні"
+msgstr "с доставкой по всей Украине"
+
+#: apps/home/templates/home/_partials/promo.html:90
+msgid ""
+"Розробляємо дизайн, друкуємо поліграфію цифровим, офсетним, "
+"шовкотрафаретним, широкоформатним на сьогодні, на завтра, за 3-5 днів."
+msgstr ""
+"Разрабатываем дизайн, печатаем полиграфию цифровым, офсетным, "
+"шелкотрафаретным, широкоформатным способами на сегодня, на завтра, за 3-5 "
+"дней."
+
+#: apps/home/templates/home/_partials/promo.html:91
+msgid "Брендування сувенірної продукції, одягу."
+msgstr "Брендирование сувенирной продукции, одежды."
+
+#: apps/home/templates/home/_partials/promo.html:92
+msgid "Виготовлення табличок (офісних, адресних)."
+msgstr "Изготовление табличек (офисных, адресных)."
+
+#: apps/home/templates/home/_partials/promo.html:93
+#: apps/home/templates/home/_partials/promo.html:145
+#: apps/home/templates/home/_partials/promo.html:166
+#: apps/home/templates/home/_partials/promo.html:186
+msgid "Дізнатися більше"
+msgstr "Узнать больше"
+
+#: apps/home/templates/home/_partials/promo.html:107
+#, fuzzy, python-format
+#| msgid ""
+#| "Замовте прорахунок вартості для отримання <span class=\"g-color-"
+#| "primary\">15%% знижки</span>"
+msgid ""
+"Замовте прорахунок вартості для отримання <span class=\"g-color-"
+"primary\">15%% знижки</span>"
+msgstr ""
+"Закажите просчёт стоимости для получения <span class=\"g-color-primary\">15% "
+"скидки</span>"
+
+#: apps/home/templates/home/_partials/promo.html:109
+msgid "Також знижку можна отримати зателефонувавши нашому менеджеру за номером"
+msgstr "Также скидку можно получить позвонив нашему менеджеру по номеру"
+
+#: apps/home/templates/home/_partials/promo.html:119
+msgid "Замовати розрахунок"
+msgstr "Заказать просчёт"
+
+#: apps/home/templates/home/_partials/promo.html:134
+msgid "Розробка дизайну поліграфії"
+msgstr "Разработка дизайна полиграфии"
+
+#: apps/home/templates/home/_partials/promo.html:141
+msgid "Розробка дизайну"
+msgstr "Разработка дизайна"
+
+#: apps/home/templates/home/_partials/promo.html:143
+msgid ""
+"До ваших послуг команда професійних дизайнерів для швидкої розробки макетів "
+"будь-якої складності"
+msgstr ""
+"К вашим услугам команда профессиональных дизайнеров для быстрой разработки "
+"макетов любой сложности"
+
+#: apps/home/templates/home/_partials/promo.html:162
+msgid "Друк поліграфії"
+msgstr "Печать полиграфии"
+
+#: apps/home/templates/home/_partials/promo.html:164
+msgid ""
+"Офсетний та цифровий друк продукції будь-якої складності у будь-яких обсягах."
+msgstr "Офсетная и цифровая печать продукции любой сложности в любых объёмах."
+
+#: apps/home/templates/home/_partials/promo.html:176
+msgid "Доставка"
+msgstr "Доставка"
+
+#: apps/home/templates/home/_partials/promo.html:182
+msgid "Доставка у термін"
+msgstr "Доставка в срок"
+
+#: apps/home/templates/home/_partials/promo.html:184
+msgid ""
+"Зможемо відправити ваше замовлення будь-якою поштовою службою по Україні або "
+"іншим, зручним для вас, способом."
+msgstr ""
+"Сможем отправить ваш заказ любым почтовым перевозчиком по Украине или иным, "
+"удобным для вас, способом."
 
 #: backend/settings.py:125
 msgid "Ukrainian"

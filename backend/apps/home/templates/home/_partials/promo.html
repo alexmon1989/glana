@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 
 <!-- Section Content -->
 <section id="home" class="u-bg-overlay g-height-90vh g-bg-img-hero g-bg-black-opacity-0_5--after g-py-20" style="background-image: url({% static 'img/home.jpg' %});">
@@ -7,30 +8,44 @@
             <div class="row">
                 <div class="col-md-6 col-lg-5 align-self-center">
                     <div class="g-bg-white g-rounded-5 g-pa-15 g-pa-30--md">
-                        <h3 class="h6 g-color-black g-font-weight-600 text-uppercase text-center g-mb-25">Рассчитать стоимость заказа</h3>
+                        <h3 class="h6 g-color-black g-font-weight-600 text-uppercase text-center g-mb-25">{% trans "Розрахувати вартість замовлення" %}</h3>
 
                         <!-- Promo Block - Form -->
                         <form id="promo-form" method="post" enctype="multipart/form-data" action="/order">{% csrf_token %}
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group g-mb-10 g-mb-20--md">
-                                        <input name="username" class="form-control g-brd-gray-light-v5 g-bg-gray-light-v5 g-bg-gray-light-v5--focus g-px-10 g-py-12" placeholder="Имя" type="text">
+                                        <input name="username"
+                                               class="form-control g-brd-gray-light-v5 g-bg-gray-light-v5 g-bg-gray-light-v5--focus g-px-10 g-py-12"
+                                               placeholder="{% trans "Ім'я" %}"
+                                               type="text">
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group g-mb-10 g-mb-20--md">
-                                        <input name="phone" class="form-control g-theme-color-gray-light-v10 g-placeholder-inherit g-brd-gray-light-v5 g-bg-gray-light-v5 g-bg-gray-light-v5--focus g-px-10 g-py-12" placeholder="Телефон" type="tel">
+                                        <input name="phone"
+                                               class="form-control g-theme-color-gray-light-v10 g-placeholder-inherit g-brd-gray-light-v5 g-bg-gray-light-v5 g-bg-gray-light-v5--focus g-px-10 g-py-12"
+                                               placeholder="{% trans "Телефон" %}"
+                                               type="tel">
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-group g-mb-10 g-mb-20--md">
-                                <input name="email" data-error-class="u-has-error-v1" class="form-control g-theme-color-gray-light-v10 g-placeholder-inherit g-brd-gray-light-v5 g-bg-gray-light-v5 g-bg-gray-light-v5--focus g-px-10 g-py-12" type="email" placeholder="E-Mail*">
+                                <input name="email"
+                                       data-error-class="u-has-error-v1"
+                                       class="form-control g-theme-color-gray-light-v10 g-placeholder-inherit g-brd-gray-light-v5 g-bg-gray-light-v5 g-bg-gray-light-v5--focus g-px-10 g-py-12"
+                                       type="email"
+                                       placeholder="E-Mail*">
                             </div>
 
                             <div class="form-group g-mb-10 g-mb-20--md">
-                                <textarea name="message" data-error-class="u-has-error-v1" class="form-control g-theme-color-gray-light-v10 g-placeholder-inherit g-brd-gray-light-v5 g-bg-gray-light-v5 g-bg-gray-light-v5--focus g-px-10 g-py-12 g-resize-none" rows="3" placeholder="Сообщение*"></textarea>
+                                <textarea name="message"
+                                          data-error-class="u-has-error-v1"
+                                          class="form-control g-theme-color-gray-light-v10 g-placeholder-inherit g-brd-gray-light-v5 g-bg-gray-light-v5 g-bg-gray-light-v5--focus g-px-10 g-py-12 g-resize-none"
+                                          rows="3"
+                                          placeholder="{% trans "Повідомлення" %}*"></textarea>
                             </div>
 
                             <!-- File Input -->
@@ -39,14 +54,15 @@
                                     <input class="form-control g-theme-color-gray-light-v10 g-placeholder-inherit g-brd-gray-light-v5 g-bg-gray-light-v5 g-bg-gray-light-v5--focus g-px-10 g-py-12" placeholder="Выбрать файл (до 5 Мб)" readonly="" type="text">
 
                                     <div class="input-group-append">
-                                        <button class="btn btn-md u-btn-primary rounded-0" type="submit">Обзор</button>
+                                        <button class="btn btn-md u-btn-primary rounded-0" type="submit">{% trans "Огляд" %}</button>
                                         <input name="file" type="file" data-error-class="u-has-error-v1">
                                     </div>
                                 </div>
                             </div>
                             <!-- End File Input -->
 
-                            <button class="btn btn-md btn-block text-uppercase u-btn-primary g-font-weight-700 g-font-size-12 g-brd-none g-rounded-4 g-py-12 g-px-15" type="submit">Отправить запрос</button>
+                            <button class="btn btn-md btn-block text-uppercase u-btn-primary g-font-weight-700 g-font-size-12 g-brd-none g-rounded-4 g-py-12 g-px-15"
+                                    type="submit">{% trans "Відправити запит" %}</button>
                         </form>
                         <!-- End Promo Block - Form -->
 
@@ -57,7 +73,9 @@
                                   <i class="fa fa-check g-font-size-25"></i>
                                 </span>
                                 <span class="media-body align-self-center">
-                                  <strong>Спасибо!</strong> Ваше сообщение было отправлено. В ближайшее время мененджер свяжется с вами.
+                                  {% blocktrans %}
+                                    <strong>Дякуємо!</strong> Ваше повідомлення було відправлене. Найближчим часом менеджер зв'яжеться з вами.
+                                  {% endblocktrans %}
                                 </span>
                             </div>
                         </div>
@@ -68,11 +86,11 @@
                 <!-- Promo Block - Info -->
                 <div class="col-md-6 col-lg-7 g-hidden-sm-down align-self-center g-color-white">
                     <h1 class="text-uppercase g-line-height-1 g-font-weight-700 g-font-size-40 g-font-size-50--md g-color-white g-mb-30">{{ page_data.meta_h1 }}</h1>
-                    <h3 class="text-uppercase g-font-weight-700 g-font-size-18 g-color-white g-mb-20">с доставкой по всей Украине</h3>
-                    <p class="g-font-size-default g-color-white-opacity-0_9 g-mb-10">Разрабатываем дизайн, печатаем полиграфию цифровым, офсетным, шелкотрафаретным, широкоформатным способами на сегодня, на завтра, за 3-5 дней.</p>
-                    <p class="g-font-size-default g-color-white-opacity-0_9 g-mb-10">Брендирование сувенирной продукции, одежды.</p>
-                    <p class="g-font-size-default g-color-white-opacity-0_9 g-mb-35">Изготовление табличек (офисных, адресных).</p>
-                    <a class="btn btn-md text-uppercase u-btn-primary g-font-weight-700 g-font-size-12 g-brd-none g-rounded-4 g-py-12 g-px-25 scrollTo" href="#products">Узнать больше</a>
+                    <h3 class="text-uppercase g-font-weight-700 g-font-size-18 g-color-white g-mb-20">{% trans "з доставкою по всій Україні" %}</h3>
+                    <p class="g-font-size-default g-color-white-opacity-0_9 g-mb-10">{% trans "Розробляємо дизайн, друкуємо поліграфію цифровим, офсетним, шовкотрафаретним, широкоформатним на сьогодні, на завтра, за 3-5 днів." %}</p>
+                    <p class="g-font-size-default g-color-white-opacity-0_9 g-mb-10">{% trans "Брендування сувенірної продукції, одягу." %}</p>
+                    <p class="g-font-size-default g-color-white-opacity-0_9 g-mb-35">{% trans "Виготовлення табличок (офісних, адресних)." %}</p>
+                    <a class="btn btn-md text-uppercase u-btn-primary g-font-weight-700 g-font-size-12 g-brd-none g-rounded-4 g-py-12 g-px-25 scrollTo" href="#products">{% trans "Дізнатися більше" %}</a>
                 </div>
                 <!-- End Promo Block - Info -->
             </div>
@@ -85,16 +103,20 @@
         <div class="container text-center text-md-left">
             <div class="row justify-content-md-around">
                 <div class="col-md-10 align-self-md-center">
-                    <h2 class="text-uppercase g-line-height-1_1 g-font-weight-700 g-font-size-26">Закажите просчёт
-                        стоимости для получения
-                        <span class="g-color-primary">15% скидки</span></h2>
-                    <p class="g-mb-20 g-mb-0--md">Также скидку можно получить позвонив нашему менеджеру по номеру <a
-                                class="g-color-main g-font-weight-600" href="tel:{{ contact_data.phone }}"><i class="fa fa-phone"></i> {{ contact_data.phone }}</a></p>
+                    <h2 class="text-uppercase g-line-height-1_1 g-font-weight-700 g-font-size-26">
+                        {% blocktrans %}Замовте прорахунок вартості для отримання <span class="g-color-primary">15% знижки</span>{% endblocktrans %}
+                    </h2>
+                    <p class="g-mb-20 g-mb-0--md">{% trans "Також знижку можна отримати зателефонувавши нашому менеджеру за номером" %} <a
+                                class="g-color-main g-font-weight-600"
+                                href="tel:{{ contact_data.phone }}"><i class="fa fa-phone"></i> {{ contact_data.phone }}</a></p>
                 </div>
 
                 <div class="col-md-2 align-self-md-center text-md-center">
                     <a class="btn btn-md text-uppercase u-btn-darkgray g-font-weight-700 g-font-size-12 g-brd-none g-rounded-4 g-py-15 g-px-15 g-px-35--md"
-                       href="#price-request" data-modal-target="#price-request" data-modal-effect="fadein">Заказать просчёт</a>
+                       href="#price-request"
+                       data-modal-target="#price-request"
+                       data-modal-effect="fadein"
+                    >{% trans "Замовати розрахунок" %}</a>
                 </div>
             </div>
         </div>
@@ -107,15 +129,20 @@
             <!-- Article -->
             <article class="u-block-hover">
                 <figure class="u-bg-overlay g-bg-black-opacity-0_2--after g-overflow-hidden g-ml-minus-1--md g-mr-minus-1--md">
-                    <img class="img-fluid w-100 u-block-hover__main--zoom-v1" src="{% static 'img/about/img1.jpg' %}" alt="Разработка дизайна полиграфии">
+                    <img class="img-fluid w-100 u-block-hover__main--zoom-v1"
+                         src="{% static 'img/about/img1.jpg' %}"
+                         alt="{% trans "Розробка дизайну поліграфії" %}">
                 </figure>
 
                 <div class="text-center g-pa-40">
                     <h3 class="text-uppercase g-font-weight-700 g-font-size-22 g-mb-15">
-                        <a class="g-color-gray-dark-v2 g-text-underline--none--hover scrollTo" href="#products">Разработка дизайна</a>
+                        <a class="g-color-gray-dark-v2 g-text-underline--none--hover scrollTo"
+                           href="#products"
+                        >{% trans "Розробка дизайну" %}</a>
                     </h3>
-                    <p>К вашим услугам команда профессиональных дизайнеров для быстрой разработки макетов любой сложности</p>
-                    <a class="text-uppercase g-font-weight-600 g-font-size-12 scrollTo" href="#products">Узнать больше</a>
+                    <p>{% trans "До ваших послуг команда професійних дизайнерів для швидкої розробки макетів будь-якої складності" %}</p>
+                    <a class="text-uppercase g-font-weight-600 g-font-size-12 scrollTo"
+                       href="#products">{% trans "Дізнатися більше" %}</a>
                 </div>
             </article>
             <!-- End Article -->
@@ -130,10 +157,13 @@
 
                 <div class="text-center g-pa-40">
                     <h3 class="text-uppercase g-font-weight-700 g-font-size-22 g-mb-15">
-                        <a class="g-color-gray-dark-v2 g-text-underline--none--hover scrollTo" href="#products">Печать полиграфии</a>
+                        <a class="g-color-gray-dark-v2 g-text-underline--none--hover scrollTo"
+                           href="#products"
+                        >{% trans "Друк поліграфії" %}</a>
                     </h3>
-                    <p>Офсетная и цифровая печать продукции любой сложности в любых объёмах</p>
-                    <a class="text-uppercase g-font-weight-600 g-font-size-12 scrollTo" href="#products">Узнать больше</a>
+                    <p>{% trans "Офсетний та цифровий друк продукції будь-якої складності у будь-яких обсягах." %}</p>
+                    <a class="text-uppercase g-font-weight-600 g-font-size-12 scrollTo"
+                       href="#products">{% trans "Дізнатися більше" %}</a>
                 </div>
             </article>
             <!-- End Article -->
@@ -143,15 +173,17 @@
             <!-- Article -->
             <article class="u-block-hover">
                 <figure class="u-bg-overlay g-bg-black-opacity-0_2--after g-overflow-hidden g-ml-minus-1--md g-mr-minus-1--md">
-                    <img class="img-fluid w-100 u-block-hover__main--zoom-v1" src="{% static 'img/about/img3.jpg' %}" alt="Доставка">
+                    <img class="img-fluid w-100 u-block-hover__main--zoom-v1" src="{% static 'img/about/img3.jpg' %}" alt="{% trans "Доставка" %}">
                 </figure>
 
                 <div class="text-center g-pa-40">
                     <h3 class="text-uppercase g-font-weight-700 g-font-size-22 g-mb-15">
-                        <a class="g-color-gray-dark-v2 g-text-underline--none--hover scrollTo" href="#delivery">Доставка в срок</a>
+                        <a class="g-color-gray-dark-v2 g-text-underline--none--hover scrollTo"
+                           href="#delivery">{% trans "Доставка у термін" %}</a>
                     </h3>
-                    <p>Сможем отправить ваш заказ любым почтовым перевозчиком по Украине или иным, удобным для вас способом.</p>
-                    <a class="text-uppercase g-font-weight-600 g-font-size-12 scrollTo" href="#delivery">Узнать больше</a>
+                    <p>{% trans "Зможемо відправити ваше замовлення будь-якою поштовою службою по Україні або іншим, зручним для вас, способом." %}</p>
+                    <a class="text-uppercase g-font-weight-600 g-font-size-12 scrollTo"
+                       href="#delivery">{% trans "Дізнатися більше" %}</a>
                 </div>
             </article>
             <!-- End Article -->
