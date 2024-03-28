@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 
 <section id="delivery" class="g-theme-bg-gray-light-v1 g-py-100">
 
@@ -9,10 +10,17 @@
                 <article class="text-center u-block-hover u-block-hover__additional--jump g-color-gray-dark-v3 g-bg-white g-min-height-300">
                     <!-- Article Content -->
                     <div class="g-py-40 g-px-30">
-                        <h3 class="text-uppercase g-font-weight-700 g-color-black g-mb-15">Оплата</h3>
-                        <em class="d-block g-font-style-normal g-color-gray-dark-v3 g-mb-20 g-min-height-80">Для нас предпочтительно получать оплату с помощью перевода на <strong>карту Приват-банка</strong>, но мы готовы обсудить другой удобный вам способ.</em>
-                        <div class="text-center d-block g-mb-30"><img class="g-px-10" src="{% static 'img/delivery/privat.jpg' %}" alt="оплата с помощью приват-банка"></div>
-                        <a class="btn btn-md text-uppercase u-btn-primary g-font-weight-700 g-font-size-12 g-brd-none g-rounded-4 g-py-12 g-px-15" href="#price-request" data-modal-target="#price-request" data-modal-effect="fadein">Заказать просчёт</a>
+                        <h3 class="text-uppercase g-font-weight-700 g-color-black g-mb-15">{% trans "Оплата" %}</h3>
+                        <em class="d-block g-font-style-normal g-color-gray-dark-v3 g-mb-20 g-min-height-80">{% blocktrans %}Для нас бажано отримувати оплату за допомогою переказу на <strong>картку Приват-банку</strong>, але ми готові обговорити інший зручний вам спосіб.{% endblocktrans %}</em>
+                        <div class="text-center d-block g-mb-30">
+                            <img class="g-px-10"
+                                 src="{% static 'img/delivery/privat.jpg' %}"
+                                 alt="{% trans "оплата за допомогою приват-банку" %}">
+                        </div>
+                        <a class="btn btn-md text-uppercase u-btn-primary g-font-weight-700 g-font-size-12 g-brd-none g-rounded-4 g-py-12 g-px-15"
+                           href="#price-request"
+                           data-modal-target="#price-request"
+                           data-modal-effect="fadein">{% trans "Замовити розрахунок" %}</a>
                     </div>
                     <!-- End Article Content -->
                 </article>
@@ -24,10 +32,16 @@
                 <article class="text-center u-block-hover u-block-hover__additional--jump g-color-gray-dark-v3 g-bg-white g-min-height-300">
                     <!-- Article Content -->
                     <div class="g-py-40 g-px-30">
-                        <h3 class="text-uppercase g-font-weight-700 g-color-black g-mb-15">Доставка</h3>
-                        <em class="d-block g-font-style-normal g-color-gray-dark-v3 g-mb-20 g-min-height-80">Отправим заказ с помощью любой удобной вам службы доставки или обсудим другой вариант.</em>
-                        <div class="text-center d-block g-mb-30"><img class="g-px-10" src="{% static 'img/delivery/nova_poshta.jpg' %}" alt="доставка новой почтой"><img class="g-px-10" src="{% static 'img/delivery/in_time.jpg' %}" alt="доставка интаймом"></div>
-                        <a class="btn btn-md text-uppercase u-btn-primary g-font-weight-700 g-font-size-12 g-brd-none g-rounded-4 g-py-12 g-px-15" href="#price-request" data-modal-target="#price-request" data-modal-effect="fadein">Заказать просчёт</a>
+                        <h3 class="text-uppercase g-font-weight-700 g-color-black g-mb-15">{% trans "Доставка" %}</h3>
+                        <em class="d-block g-font-style-normal g-color-gray-dark-v3 g-mb-20 g-min-height-80">{% trans "Відправимо замовлення за допомогою будь-якої зручної служби доставки або обговоримо інший варіант." %}</em>
+                        <div class="text-center d-block g-mb-30">
+                            <img class="g-px-10" src="{% static 'img/delivery/nova_poshta.jpg' %}" alt="{% trans "доставка новою поштою" %}">
+                            <img class="g-px-10" src="{% static 'img/delivery/in_time.jpg' %}" alt="{% trans "доставка інтаймом" %}">
+                        </div>
+                        <a class="btn btn-md text-uppercase u-btn-primary g-font-weight-700 g-font-size-12 g-brd-none g-rounded-4 g-py-12 g-px-15"
+                           href="#price-request"
+                           data-modal-target="#price-request"
+                           data-modal-effect="fadein">{% trans "Замовити розрахунок" %}</a>
                     </div>
                     <!-- End Article Content -->
                 </article>

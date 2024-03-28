@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-28 11:55+0000\n"
+"POT-Creation-Date: 2024-03-28 12:05+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -59,6 +59,47 @@ msgstr ""
 msgid "Залишити заявку"
 msgstr "Оставить заявку"
 
+#: apps/home/templates/home/_partials/delivery.html:13
+msgid "Оплата"
+msgstr "Оплата"
+
+#: apps/home/templates/home/_partials/delivery.html:14
+msgid ""
+"Для нас бажано отримувати оплату за допомогою переказу на <strong>картку Приват-банку</strong>, "
+"але ми готові обговорити інший зручний вам спосіб."
+msgstr ""
+"Для нас предпочтительно получать оплату с помощью перевода на <strong>карту "
+"Приват-банка</strong>, но мы готовы обсудить другой удобный вам способ."
+
+#: apps/home/templates/home/_partials/delivery.html:18
+msgid "оплата за допомогою приват-банку"
+msgstr "оплата с помощью приват-банка"
+
+#: apps/home/templates/home/_partials/delivery.html:23
+#: apps/home/templates/home/_partials/delivery.html:44
+#: apps/home/templates/home/_partials/header.html:97
+msgid "Замовити розрахунок"
+msgstr "Заказать просчёт"
+
+#: apps/home/templates/home/_partials/delivery.html:35
+#: apps/home/templates/home/_partials/promo.html:176
+msgid "Доставка"
+msgstr "Доставка"
+
+#: apps/home/templates/home/_partials/delivery.html:36
+msgid "Відправимо замовлення за допомогою будь-якої зручної служби доставки або обговоримо інший варіант."
+msgstr ""
+"Отправим заказ с помощью любой удобной вам службы доставки или обсудим "
+"другой вариант."
+
+#: apps/home/templates/home/_partials/delivery.html:38
+msgid "доставка новою поштою"
+msgstr "доставка новой почтой"
+
+#: apps/home/templates/home/_partials/delivery.html:39
+msgid "доставка інтаймом"
+msgstr "доставка интаймом"
+
 #: apps/home/templates/home/_partials/header.html:24
 msgid "Дзвоніть"
 msgstr "Звоните"
@@ -96,10 +137,6 @@ msgstr "Оплата и доставка"
 #: apps/home/templates/home/_partials/header.html:86
 msgid "Контакти"
 msgstr "Контакты"
-
-#: apps/home/templates/home/_partials/header.html:97
-msgid "Замовити розрахунок"
-msgstr "Заказать просчёт"
 
 #: apps/home/templates/home/_partials/job_scheme.html:15
 msgid ""
@@ -217,6 +254,10 @@ msgstr ""
 "href=\"#delivery\">Детальнее.</a>"
 
 #: apps/home/templates/home/_partials/parallaxer.html:10
+#, fuzzy, python-format
+#| msgid ""
+#| "Щоб отримати <span class=\"g-color-primary\">знижку 15%%</span>, "
+#| "подзвоніть нам по телефону"
 msgid ""
 "Щоб отримати <span class=\"g-color-primary\">знижку 15%%</span>, подзвоніть "
 "нам по телефону"
@@ -340,10 +381,6 @@ msgstr "Печать полиграфии"
 msgid ""
 "Офсетний та цифровий друк продукції будь-якої складності у будь-яких обсягах."
 msgstr "Офсетная и цифровая печать продукции любой сложности в любых объёмах."
-
-#: apps/home/templates/home/_partials/promo.html:176
-msgid "Доставка"
-msgstr "Доставка"
 
 #: apps/home/templates/home/_partials/promo.html:182
 msgid "Доставка у термін"
