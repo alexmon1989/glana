@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 
 <div id="about">
     <section class="g-py-70">
@@ -6,20 +7,22 @@
             <!-- Image, Text Block -->
             <div class="row d-flex align-items-lg-center flex-wrap g-mb-60 g-mb-0--lg">
                 <div class="col-md-6 col-lg-8">
-                    <img class="img-fluid rounded" src="{% static 'img/about/img4.png' %}" alt="">
+                    <img class="img-fluid rounded"
+                         src="{% static 'img/about/img4.png' %}"
+                         alt="">
                 </div>
-                <div class="col-md-6 col-lg-4">
+                <div class="col-md-6 col-lg-4 g-z-index-9999">
                     <div class="g-mt-minus-30 g-mt-30--md g-ml-minus-100--lg">
                         <div class="g-mb-20">
-                            <h2 class="g-color-black g-font-weight-600 g-font-size-25 g-font-size-35--lg g-line-height-1_2 mb-4">Разработка дизайна, <br>печать полиграфии
-                            </h2>
-                            <p class="g-font-size-16">Компания "Фрегат" обеспечит вам полный цикл производства полиграфической продукции: от разработки дизайна до доставки вам уже готовой напечатанной продукции. У нас в штате работают профессиональные дизайнеры, а также установлено совеременное оборудование для печати.</p>
+                            <h2 class="g-color-black g-font-weight-600 g-font-size-25 g-font-size-35--lg g-line-height-1_2 mb-4">{% blocktrans %}Розробка дизайну, <br>друк поліграфії{% endblocktrans %}</h2>
+                            <p class="g-font-size-16">{% trans 'Компанія "Глана" забезпечить повний цикл виробництва поліграфічної продукції: від розробки дизайну до доставки вам вже готової надрукованої продукції. У нас у штаті працюють професійні дизайнери, а також встановлене обладнання для друку.' %}</p>
                         </div>
-                        <a class="btn u-btn-primary g-brd-2 g-brd-white g-font-size-13 g-rounded-50 g-pl-20 g-pr-15 g-py-9 scrollTo" href="#products">
-                            Вся продукция
+                        <a class="btn u-btn-primary g-brd-2 g-brd-white g-font-size-13 g-rounded-50 g-pl-20 g-pr-15 g-py-9 scrollTo"
+                           href="#products">
+                            {% trans "Уся продукція" %}
                             <span class="align-middle u-icon-v3 g-width-16 g-height-16 g-color-black g-bg-white g-font-size-11 rounded-circle ml-3">
-              <i class="fa fa-angle-right"></i>
-            </span>
+                              <i class="fa fa-angle-right"></i>
+                            </span>
                         </a>
                     </div>
                 </div>
@@ -36,15 +39,17 @@
                 <div class="col-md-6 col-lg-4 ml-auto order-md-1">
                     <div class="g-mt-minus-30 g-mt-0--md g-ml-minus-100--lg">
                         <div class="g-mb-20">
-                            <h2 class="g-color-black g-font-weight-600 g-font-size-25 g-font-size-35--lg g-line-height-1_2 mb-4">Просто<br>оставьте заявку
-                            </h2>
-                            <p class="g-font-size-16">Для вашего удобства и экономии времени вы можете оставить заявку с помощью веб-сайта и наш менеджер свяжется с вами в самое ближайшее время для уточнения деталей заказа.</p>
+                            <h2 class="g-color-black g-font-weight-600 g-font-size-25 g-font-size-35--lg g-line-height-1_2 mb-4">{% blocktrans %}Просто<br>залиште заявку{% endblocktrans %}</h2>
+                            <p class="g-font-size-16">{% trans "Для вашої зручності та економії часу ви можете залишити заявку за допомогою веб-сайту та наш менеджер зв'яжеться з вами найближчим часом для уточнення деталей замовлення." %}</p>
                         </div>
-                        <a class="btn u-btn-primary g-brd-2 g-brd-white g-font-size-13 g-rounded-50 g-pl-20 g-pr-15 g-py-9" href="#price-request" data-modal-target="#price-request" data-modal-effect="fadein">
-                            Оставить заявку
+                        <a class="btn u-btn-primary g-brd-2 g-brd-white g-font-size-13 g-rounded-50 g-pl-20 g-pr-15 g-py-9"
+                           href="#price-request"
+                           data-modal-target="#price-request"
+                           data-modal-effect="fadein">
+                            {% trans "Залишити заявку" %}
                             <span class="align-middle u-icon-v3 g-width-16 g-height-16 g-color-black g-bg-white g-font-size-11 rounded-circle ml-3">
-              <i class="fa fa-angle-right"></i>
-            </span>
+                              <i class="fa fa-angle-right"></i>
+                            </span>
                         </a>
                     </div>
                 </div>

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-23 21:04+0000\n"
+"POT-Creation-Date: 2024-03-28 10:46+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,43 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: apps/home/templates/home/_partials/about.html:18
+msgid "Розробка дизайну, <br>друк поліграфії"
+msgstr "Разработка дизайна, <br>печать полиграфии"
+
+#: apps/home/templates/home/_partials/about.html:19
+msgid ""
+"Компанія \"Глана\" забезпечить повний цикл виробництва поліграфічної продукції: "
+"від розробки дизайну до доставки вам вже готової надрукованої продукції. "
+"У нас у штаті працюють професійні дизайнери, а також встановлене обладнання для друку."
+msgstr ""
+"Компания \"Глана\" обеспечит вам полный цикл производства полиграфической "
+"продукции: от разработки дизайна до доставки вам уже готовой напечатанной "
+"продукции. У нас в штате работают профессиональные дизайнеры, а также "
+"установлено совеременное оборудование для печати."
+
+#: apps/home/templates/home/_partials/about.html:23
+msgid "Уся продукція"
+msgstr "Вся продукция"
+
+#: apps/home/templates/home/_partials/about.html:43
+msgid "Просто<br>залиште заявку"
+msgstr "Просто<br>оставьте заявку"
+
+#: apps/home/templates/home/_partials/about.html:44
+msgid ""
+"Для вашої зручності та економії часу ви можете залишити заявку за допомогою "
+"веб-сайту та наш менеджер зв'яжеться з вами найближчим часом для уточнення "
+"деталей замовлення."
+msgstr ""
+"Для вашего удобства и экономии времени вы можете оставить заявку с помощью "
+"веб-сайта и наш менеджер свяжется с вами в самое ближайшее время для уточнения деталей заказа"
+
+#: apps/home/templates/home/_partials/about.html:50
+#: apps/home/templates/home/_partials/parallaxer.html:15
+msgid "Залишити заявку"
+msgstr "Оставить заявку"
 
 #: apps/home/templates/home/_partials/header.html:24
 msgid "Дзвоніть"
@@ -62,9 +99,12 @@ msgid "Замовити розрахунок"
 msgstr "Заказать просчёт"
 
 #: apps/home/templates/home/_partials/parallaxer.html:10
-#, python-format
+#, fuzzy, python-format
+#| msgid ""
+#| "Щоб отримати <span class=\"g-color-primary\">знижку 15%%</span>, "
+#| "подзвоніть нам по телефону"
 msgid ""
-"Щоб отримати <span class=\"g-color-primary\">знижку 15%</span>, подзвоніть "
+"Щоб отримати <span class=\"g-color-primary\">знижку 15%%</span>, подзвоніть "
 "нам по телефону"
 msgstr ""
 "Чтобы получить <span class=\"g-color-primary\">скидку 15%</span>, позвоните "
@@ -73,10 +113,6 @@ msgstr ""
 #: apps/home/templates/home/_partials/parallaxer.html:10
 msgid "або залиште заявку"
 msgstr "или оставьте заявку"
-
-#: apps/home/templates/home/_partials/parallaxer.html:15
-msgid "Залишити заявку"
-msgstr "Оставить заявку"
 
 #: apps/home/templates/home/_partials/products.html:9
 msgid "Розробимо дизайн та надрукуємо для вас таку продукцію"
@@ -214,3 +250,8 @@ msgstr "Украинский"
 #: backend/settings.py:126
 msgid "Russian"
 msgstr "Русский"
+
+#, fuzzy
+#~| msgid "Залишити заявку"
+#~ msgid "Оставить заявку"
+#~ msgstr "Оставить заявку"
