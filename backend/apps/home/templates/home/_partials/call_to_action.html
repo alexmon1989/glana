@@ -1,13 +1,17 @@
 {% load static %}
+{% load i18n %}
 
 <section class="g-bg-primary g-color-white g-pa-30" style="background-image: url({% static 'img/bg/pattern5.png' %});">
     <div class="d-md-flex justify-content-md-center text-center">
         <div class="align-self-md-center">
-            <p class="lead g-font-weight-400 g-mr-20--md g-mb-15 g-mb-0--md">Позвоните нам по номеру <a
-                        href="tel: {{ contact_data.phone }}" class="g-color-inherit">{{ contact_data.phone }}</a> или оставьте заявку для получения 15% скидки.</p>
+            <p class="lead g-font-weight-400 g-mr-20--md g-mb-15 g-mb-0--md">{% blocktrans with phone=contact_data.phone %}Подзвоніть нам по номеру <a
+                        href="tel: {{ contact_data.phone }}" class="g-color-inherit">{{ contact_data.phone }}</a> або залиште заявку для отримання 15% знижки.{% endblocktrans %}</p>
         </div>
         <div class="align-self-md-center">
-            <a class="btn btn-lg u-btn-white text-uppercase g-font-weight-600 g-font-size-12" href="#price-request" data-modal-target="#price-request" data-modal-effect="fadein">Оставить заявку</a>
+            <a class="btn btn-lg u-btn-white text-uppercase g-font-weight-600 g-font-size-12"
+               href="#price-request"
+               data-modal-target="#price-request"
+               data-modal-effect="fadein">{% trans "Залишити заявку" %}</a>
         </div>
     </div>
 </section>

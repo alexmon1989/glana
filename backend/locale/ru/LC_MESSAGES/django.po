@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-28 12:23+0000\n"
+"POT-Creation-Date: 2024-03-29 11:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -55,9 +55,23 @@ msgstr ""
 "уточнения деталей заказа"
 
 #: apps/home/templates/home/_partials/about.html:49
+#: apps/home/templates/home/_partials/call_to_action.html:14
 #: apps/home/templates/home/_partials/parallaxer.html:15
 msgid "Залишити заявку"
 msgstr "Оставить заявку"
+
+#: apps/home/templates/home/_partials/call_to_action.html:7
+#, python-format
+msgid ""
+"Подзвоніть нам по номеру <a\n"
+"                        href=\"tel: %(contact_data.phone)s\" class=\"g-color-"
+"inherit\">%(contact_data.phone)s</a> або залиште заявку для отримання 15%% "
+"знижки."
+msgstr ""
+"Позвоните нам по номеру <a\n"
+"                        href=\"tel: %(contact_data.phone)s\" class=\"g-color-"
+"inherit\">%(contact_data.phone)s</a> или оставьте заявку для получения 15%% "
+"скидки."
 
 #: apps/home/templates/home/_partials/contacts.html:5
 msgid "Зв'язок з нами"
@@ -99,9 +113,11 @@ msgstr "Отправить"
 
 #: apps/home/templates/home/_partials/contacts.html:68
 msgid ""
-"<strong>Дякуємо!</strong> Ваше повідомлення надіслане. Найближчим часом менеджер зв'яжеться з вами."
+"<strong>Дякуємо!</strong> Ваше повідомлення надіслане. Найближчим часом "
+"менеджер зв'яжеться з вами."
 msgstr ""
-"<strong>Спасибо!</strong> Ваше сообщение было отправлено. В ближайшее время мененджер свяжется с вами."
+"<strong>Спасибо!</strong> Ваше сообщение было отправлено. В ближайшее время "
+"мененджер свяжется с вами."
 
 #: apps/home/templates/home/_partials/delivery.html:13
 msgid "Оплата"
