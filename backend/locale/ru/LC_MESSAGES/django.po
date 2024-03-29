@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-29 11:26+0000\n"
+"POT-Creation-Date: 2024-03-29 11:41+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -86,6 +86,7 @@ msgid "Контактні дані"
 msgstr "Контактные данные"
 
 #: apps/home/templates/home/_partials/contacts.html:15
+#: apps/home/templates/home/_partials/modal_form.html:26
 #: apps/home/templates/home/_partials/promo.html:29
 msgid "Телефон"
 msgstr "Телефон"
@@ -103,11 +104,13 @@ msgid "Ваш email"
 msgstr "Ваш email"
 
 #: apps/home/templates/home/_partials/contacts.html:52
+#: apps/home/templates/home/_partials/modal_form.html:45
 #: apps/home/templates/home/_partials/promo.html:48
 msgid "Повідомлення"
 msgstr "Сообщение"
 
 #: apps/home/templates/home/_partials/contacts.html:58
+#: apps/home/templates/home/_partials/modal_form.html:67
 msgid "Відправити"
 msgstr "Отправить"
 
@@ -138,6 +141,7 @@ msgstr "оплата с помощью приват-банка"
 #: apps/home/templates/home/_partials/delivery.html:23
 #: apps/home/templates/home/_partials/delivery.html:44
 #: apps/home/templates/home/_partials/header.html:97
+#: apps/home/templates/home/_partials/modal_form.html:7
 msgid "Замовити розрахунок"
 msgstr "Заказать просчёт"
 
@@ -319,6 +323,29 @@ msgstr ""
 "                                        <a class=\"scrollTo\" "
 "href=\"#delivery\">Детальнее.</a>"
 
+#: apps/home/templates/home/_partials/modal_form.html:8
+msgid "Будь ласка, заповніть форму нижче для уточнення деталей"
+msgstr ""
+"Пожалуйста, заполните форму ниже и мы свяжемся с вами для уточнения деталей"
+
+#: apps/home/templates/home/_partials/modal_form.html:17
+#: apps/home/templates/home/_partials/promo.html:20
+msgid "Ім'я"
+msgstr "Имя"
+
+#: apps/home/templates/home/_partials/modal_form.html:57
+#: apps/home/templates/home/_partials/promo.html:57
+msgid "Огляд"
+msgstr "Обзор"
+
+#: apps/home/templates/home/_partials/modal_form.html:77
+msgid ""
+"<strong>Дякуємо!</strong> Ваше повідомлення було відправлене. Найближчим "
+"часом менеджер зв'яжеться з вами."
+msgstr ""
+"<strong>Спасибо!</strong> Ваше сообщение было отправлено. В ближайшее время "
+"мененджер свяжется с вами."
+
 #: apps/home/templates/home/_partials/parallaxer.html:10
 #, fuzzy, python-format
 #| msgid ""
@@ -342,14 +369,6 @@ msgstr "Разработаем дизайн и напечатаем для ва�
 #: apps/home/templates/home/_partials/promo.html:11
 msgid "Розрахувати вартість замовлення"
 msgstr "Рассчитать стоимость заказа"
-
-#: apps/home/templates/home/_partials/promo.html:20
-msgid "Ім'я"
-msgstr "Имя"
-
-#: apps/home/templates/home/_partials/promo.html:57
-msgid "Огляд"
-msgstr "Обзор"
 
 #: apps/home/templates/home/_partials/promo.html:65
 msgid "Відправити запит"
@@ -451,6 +470,19 @@ msgid ""
 msgstr ""
 "Сможем отправить ваш заказ любым почтовым перевозчиком по Украине или иным, "
 "удобным для вас, способом."
+
+#: apps/home/templates/home/home.html:147
+#: apps/home/templates/home/home.html:151
+msgid "Необхідно заповнити це поле"
+msgstr "Необходимо заполнить это поле"
+
+#: apps/home/templates/home/home.html:148
+msgid "Поле має містити правильну електронну адресу"
+msgstr "Поле должно содержать правильный E-Mail адрес"
+
+#: apps/home/templates/home/home.html:152
+msgid "Поле має містити щонайменше 10 символів"
+msgstr "Поле должно содержать минимум 10 символов"
 
 #: backend/settings.py:125
 msgid "Ukrainian"

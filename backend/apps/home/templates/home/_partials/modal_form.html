@@ -1,61 +1,82 @@
-<!-- Demo modal window -->
+{% load i18n %}
+
 <div id="price-request" class="text-left g-max-width-600 g-bg-white g-overflow-y-auto g-pa-20" style="display: none;">
     <button type="button" class="close" onclick="Custombox.modal.close();">
         <i class="hs-icon hs-icon-close"></i>
     </button>
-    <h4 class="g-mb-20">Заказать просчёт</h4>
-    <p>Пожалуйста, заполните форму ниже и мы свяжемся с вами для уточнения деталей:</p>
+    <h4 class="g-mb-20">{% trans "Замовити розрахунок" %}</h4>
+    <p>{% trans "Будь ласка, заповніть форму нижче для уточнення деталей" %}:</p>
 
-    <form id="promo-form-modal" method="post" enctype="multipart/form-data" action="/order">{% csrf_token %}
+    <form id="promo-form-modal" method="post" enctype="multipart/form-data" action="/order">
+        {% csrf_token %}
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group g-mb-10 g-mb-20--md">
-                    <input name="username" class="form-control g-brd-gray-light-v5 g-bg-gray-light-v5 g-bg-gray-light-v5--focus g-px-10 g-py-12" placeholder="Имя" type="text">
+                    <input name="username"
+                           class="form-control g-brd-gray-light-v5 g-bg-gray-light-v5 g-bg-gray-light-v5--focus g-px-10 g-py-12"
+                           placeholder="{% trans "Ім'я" %}"
+                           type="text">
                 </div>
             </div>
 
             <div class="col-md-6">
                 <div class="form-group g-mb-10 g-mb-20--md">
-                    <input name="phone" class="form-control g-theme-color-gray-light-v10 g-placeholder-inherit g-brd-gray-light-v5 g-bg-gray-light-v5 g-bg-gray-light-v5--focus g-px-10 g-py-12" placeholder="Телефон" type="tel">
+                    <input name="phone"
+                           class="form-control g-theme-color-gray-light-v10 g-placeholder-inherit g-brd-gray-light-v5 g-bg-gray-light-v5 g-bg-gray-light-v5--focus g-px-10 g-py-12"
+                           placeholder="{% trans "Телефон" %}"
+                           type="tel">
                 </div>
             </div>
         </div>
 
         <div class="form-group g-mb-10 g-mb-20--md">
-            <input name="email" data-error-class="u-has-error-v1" class="form-control g-theme-color-gray-light-v10 g-placeholder-inherit g-brd-gray-light-v5 g-bg-gray-light-v5 g-bg-gray-light-v5--focus g-px-10 g-py-12" type="email" placeholder="E-Mail*">
+            <input name="email"
+                   data-error-class="u-has-error-v1"
+                   class="form-control g-theme-color-gray-light-v10 g-placeholder-inherit g-brd-gray-light-v5 g-bg-gray-light-v5 g-bg-gray-light-v5--focus g-px-10 g-py-12"
+                   type="email"
+                   placeholder="E-Mail*">
         </div>
 
         <div class="form-group g-mb-10 g-mb-20--md">
-            <textarea name="message" data-error-class="u-has-error-v1" class="form-control g-theme-color-gray-light-v10 g-placeholder-inherit g-brd-gray-light-v5 g-bg-gray-light-v5 g-bg-gray-light-v5--focus g-px-10 g-py-12 g-resize-none" rows="3" placeholder="Сообщение*"></textarea>
+            <textarea name="message"
+                      data-error-class="u-has-error-v1"
+                      class="form-control g-theme-color-gray-light-v10 g-placeholder-inherit g-brd-gray-light-v5 g-bg-gray-light-v5 g-bg-gray-light-v5--focus g-px-10 g-py-12 g-resize-none"
+                      rows="3"
+                      placeholder="{% trans "Повідомлення" %}*"></textarea>
         </div>
 
         <!-- File Input -->
         <div class="form-group g-mb-10 g-mb-20--md">
             <div class="input-group u-file-attach-v1 g-brd-gray-light-v2">
-                <input class="form-control g-theme-color-gray-light-v10 g-placeholder-inherit g-brd-gray-light-v5 g-bg-gray-light-v5 g-bg-gray-light-v5--focus g-px-10 g-py-12" placeholder="Выбрать файл (до 5 Мб)" readonly="" type="text">
+                <input class="form-control g-theme-color-gray-light-v10 g-placeholder-inherit g-brd-gray-light-v5 g-bg-gray-light-v5 g-bg-gray-light-v5--focus g-px-10 g-py-12"
+                       placeholder="Выбрать файл (до 5 Мб)"
+                       readonly=""
+                       type="text">
 
                 <div class="input-group-append">
-                    <button class="btn btn-md u-btn-primary rounded-0" type="submit">Обзор</button>
-                    <input name="file" type="file" data-error-class="u-has-error-v1">
+                    <button class="btn btn-md u-btn-primary rounded-0" type="submit">{% trans "Огляд" %}</button>
+                    <input name="file"
+                           type="file"
+                           data-error-class="u-has-error-v1">
                 </div>
             </div>
         </div>
         <!-- End File Input -->
 
-        <button class="btn btn-md btn-block text-uppercase u-btn-primary g-font-weight-700 g-font-size-12 g-brd-none g-rounded-4 g-py-12 g-px-15" type="submit">Отправить запрос</button>
+        <button class="btn btn-md btn-block text-uppercase u-btn-primary g-font-weight-700 g-font-size-12 g-brd-none g-rounded-4 g-py-12 g-px-15"
+                type="submit">{% trans "Відправити" %}</button>
     </form>
 
     <!-- Teal Alert -->
     <div id="promo-form-success" class="alert fade show g-bg-teal g-color-white rounded-0" role="alert" style="display: none">
         <div class="media">
-                                <span class="d-flex g-mr-10 g-mt-5">
-                                  <i class="fa fa-check g-font-size-25"></i>
-                                </span>
+            <span class="d-flex g-mr-10 g-mt-5">
+              <i class="fa fa-check g-font-size-25"></i>
+            </span>
             <span class="media-body align-self-center">
-                                  <strong>Спасибо!</strong> Ваше сообщение было отправлено. В ближайшее время мененджер свяжется с вами.
-                                </span>
+              {% blocktrans %}<strong>Дякуємо!</strong> Ваше повідомлення було відправлене. Найближчим часом менеджер зв'яжеться з вами.{% endblocktrans %}
+            </span>
         </div>
     </div>
     <!-- End Teal Alert -->
 </div>
-<!-- End Demo modal window -->
