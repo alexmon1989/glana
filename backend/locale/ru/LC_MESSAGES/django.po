@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-29 11:23+0000\n"
+"POT-Creation-Date: 2024-03-29 11:26+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -161,6 +161,10 @@ msgstr "доставка новой почтой"
 #: apps/home/templates/home/_partials/delivery.html:39
 msgid "доставка інтаймом"
 msgstr "доставка интаймом"
+
+#: apps/home/templates/home/_partials/footer.html:8
+msgid "Усі права захищено"
+msgstr "Все права защищены"
 
 #: apps/home/templates/home/_partials/header.html:24
 msgid "Дзвоніть"
