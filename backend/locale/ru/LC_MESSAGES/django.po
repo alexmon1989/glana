@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-28 12:05+0000\n"
+"POT-Creation-Date: 2024-03-28 12:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -59,14 +59,58 @@ msgstr ""
 msgid "Залишити заявку"
 msgstr "Оставить заявку"
 
+#: apps/home/templates/home/_partials/contacts.html:5
+msgid "Зв'язок з нами"
+msgstr "Связь с нами"
+
+#: apps/home/templates/home/_partials/contacts.html:6
+msgid "Зателефонуйте нам або напишіть повідомлення прямо з сайту"
+msgstr "Позвоните нам или напишите сообщение прямо с сайта"
+
+#: apps/home/templates/home/_partials/contacts.html:13
+msgid "Контактні дані"
+msgstr "Контактные данные"
+
+#: apps/home/templates/home/_partials/contacts.html:15
+#: apps/home/templates/home/_partials/promo.html:29
+msgid "Телефон"
+msgstr "Телефон"
+
+#: apps/home/templates/home/_partials/contacts.html:28
+msgid "Ваше ім'я"
+msgstr "Ваше имя"
+
+#: apps/home/templates/home/_partials/contacts.html:35
+msgid "Ваш телефон"
+msgstr "Ваш телефон"
+
+#: apps/home/templates/home/_partials/contacts.html:43
+msgid "Ваш email"
+msgstr "Ваш email"
+
+#: apps/home/templates/home/_partials/contacts.html:52
+#: apps/home/templates/home/_partials/promo.html:48
+msgid "Повідомлення"
+msgstr "Сообщение"
+
+#: apps/home/templates/home/_partials/contacts.html:58
+msgid "Відправити"
+msgstr "Отправить"
+
+#: apps/home/templates/home/_partials/contacts.html:68
+msgid ""
+"<strong>Дякуємо!</strong> Ваше повідомлення надіслане. Найближчим часом менеджер зв'яжеться з вами."
+msgstr ""
+"<strong>Спасибо!</strong> Ваше сообщение было отправлено. В ближайшее время мененджер свяжется с вами."
+
 #: apps/home/templates/home/_partials/delivery.html:13
 msgid "Оплата"
 msgstr "Оплата"
 
 #: apps/home/templates/home/_partials/delivery.html:14
 msgid ""
-"Для нас бажано отримувати оплату за допомогою переказу на <strong>картку Приват-банку</strong>, "
-"але ми готові обговорити інший зручний вам спосіб."
+"Для нас бажано отримувати оплату за допомогою переказу на <strong>картку "
+"Приват-банку</strong>, але ми готові обговорити інший зручний вам спосіб."
 msgstr ""
 "Для нас предпочтительно получать оплату с помощью перевода на <strong>карту "
 "Приват-банка</strong>, но мы готовы обсудить другой удобный вам способ."
@@ -87,7 +131,9 @@ msgid "Доставка"
 msgstr "Доставка"
 
 #: apps/home/templates/home/_partials/delivery.html:36
-msgid "Відправимо замовлення за допомогою будь-якої зручної служби доставки або обговоримо інший варіант."
+msgid ""
+"Відправимо замовлення за допомогою будь-якої зручної служби доставки або "
+"обговоримо інший варіант."
 msgstr ""
 "Отправим заказ с помощью любой удобной вам службы доставки или обсудим "
 "другой вариант."
@@ -280,14 +326,6 @@ msgstr "Рассчитать стоимость заказа"
 #: apps/home/templates/home/_partials/promo.html:20
 msgid "Ім'я"
 msgstr "Имя"
-
-#: apps/home/templates/home/_partials/promo.html:29
-msgid "Телефон"
-msgstr "Телефон"
-
-#: apps/home/templates/home/_partials/promo.html:48
-msgid "Повідомлення"
-msgstr "Сообщение"
 
 #: apps/home/templates/home/_partials/promo.html:57
 msgid "Огляд"
