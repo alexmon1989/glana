@@ -1,6 +1,25 @@
 from django.contrib import admin
 from singlemodeladmin import SingleModelAdmin
+from modeltranslation.admin import TranslationAdmin
+from modeltranslation.translator import translator, TranslationOptions
 from .models import Product, ProductType, ContactData, PageData
+
+
+class PageDataOptions(TranslationOptions):
+    fields = ('meta_h1', 'meta_title', 'meta_keywords', 'meta_description')
+
+
+class ProductTypeOptions(TranslationOptions):
+    fields = ('title', )
+
+
+class ProductOptions(TranslationOptions):
+    fields = ('title', 'short_description', 'long_description')
+
+
+translator.register(PageData, PageDataOptions)
+translator.register(ProductType, ProductTypeOptions)
+translator.register(Product, ProductOptions)
 
 
 @admin.register(ProductType)
@@ -29,6 +48,6 @@ class ContactDataAdmin(SingleModelAdmin):
 
 
 @admin.register(PageData)
-class PageDataAdmin(SingleModelAdmin):
+class PageDataAdmin(SingleModelAdmin, TranslationAdmin):
     """Класс для описания интерфейса администрирования данных страницы."""
     pass
