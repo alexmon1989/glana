@@ -6,14 +6,14 @@
     <div class="g-pt-5 g-pt-15--md g-nowrap">
         <ul class="u-list-inline g-font-size-15">
             {% spaceless %}
-            <li class="list-inline-item g-mr-5">
+            <li class="list-inline-item g-mr-5 g-font-weight-600">
                 {% if LANGUAGE_CODE != 'uk' %}
                     <a class="g-text-underline--none--hover" href="{% change_language 'uk' %}">🇺🇦&nbsp;UA</a>
                 {% else %}
                     🇺🇦&nbsp;UA
                 {% endif %}
             </li>
-            <li class="list-inline-item g-brd-left g-brd-gray-light-v1 g-pl-5">
+            <li class="list-inline-item g-brd-left g-brd-gray-light-v1 g-pl-5 g-font-weight-600">
                 {% if LANGUAGE_CODE != 'ru' %}
                     <a href="{% change_language 'ru' %}">RU</a>
                 {% else %}
