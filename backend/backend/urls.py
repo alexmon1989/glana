@@ -19,12 +19,25 @@ from django.urls import path
 from django.conf.urls import include
 from django.conf.urls.static import static
 from django.conf.urls.i18n import i18n_patterns
+from django.contrib.sitemaps.views import sitemap
+
+from .sitemaps import StaticViewSitemap
+
+sitemaps = {
+    "static": StaticViewSitemap,
+}
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path("i18n/", include("django.conf.urls.i18n")),
+    path(
+        'sitemap.xml',
+        sitemap,
+        {"sitemaps": sitemaps},
+        name="django.contrib.sitemaps.views.sitemap",
+    ),
 ]
 
 urlpatterns += i18n_patterns(

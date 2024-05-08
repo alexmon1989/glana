@@ -23,6 +23,8 @@
     <!-- CSS Customization -->
     <link rel="stylesheet" href="{% static 'css/bundle.min.css' %}">
 
+    {% include '_partials/alternates_hrefs.html' %}
+
     {{ page_data.ga_html|safe }}
 </head>
 
