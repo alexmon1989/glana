@@ -42,7 +42,7 @@ class ProductType(TimeStampedModel, CacheClearModel):
 class ProductManager(models.Manager):
     def enabled(self):
         """Возвращает продукты с is_enabled=True."""
-        return super(ProductManager, self).get_queryset().filter(is_enabled=True)
+        return super(ProductManager, self).get_queryset().prefetch_related('types').filter(is_enabled=True)
 
 
 def upload_to(instance, filename):
@@ -69,7 +69,7 @@ class Product(TimeStampedModel, CacheClearModel):
         return self.title
 
     def get_types_string(self):
-        return ' '.join([x[0] for x in self.types.values_list('slug')])
+        return ' '.join([x.slug for x in self.types.all()])
 
     class Meta:
         verbose_name = 'Продукт'
