@@ -25,31 +25,36 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '2zhc8(pu-vdaqkyk$o3h51jg4d78^k7=)+(w#3utvimpsl8_$d'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
 INSTALLED_APPS = [
+    'modeltranslation',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sitemaps',
     'debug_toolbar',
     'ckeditor',
     'ckeditor_uploader',
     'easy_thumbnails',
     'apps.home.apps.HomeConfig',
+    'apps.products.apps.ProductsConfig',
+    'apps.core.apps.CoreConfig',
+    'apps.contacts.apps.ContactsConfig',
 ]
 
 MIDDLEWARE = [
     'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -74,6 +79,9 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'libraries': {
+                'project_extras': 'templatetags.project_extras',
+            }
         },
     },
 ]
@@ -142,11 +150,16 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "../frontend/dist"),
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, "../static")
+STATICFILES_STORAGE = 'backend.storages.MyStorage'
 
 MEDIA_ROOT = os.path.abspath(os.path.join(BASE_DIR, '../media'))
 MEDIA_URL = '/media/'
 
 INTERNAL_IPS = ['127.0.0.1']
+if DEBUG:
+   import socket
+   hostname, _, ips =socket.gethostbyname_ex(socket.gethostname())
+   INTERNAL_IPS += [ip[:-1] + '1' for ip in ips]
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_IMAGE_BACKEND = "pillow"
@@ -213,10 +226,17 @@ THUMBNAIL_ALIASES = {
     },
 }
 
+# REDIS settings
+REDIS_HOST = 'redis'
+REDIS_PORT = '6380'
+
 CACHES = {
     'default': {
-        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
-        'LOCATION': 'D:/projects/fregat.in.ua_landing/cache',
+        # 'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        # 'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+        # 'LOCATION': os.path.join(BASE_DIR, "../cache"),
+        'BACKEND': 'django.core.cache.backends.redis.RedisCache',
+        'LOCATION': 'redis://' + REDIS_HOST + ':' + REDIS_PORT + '/0'
     }
 }
 CACHE_MIDDLEWARE_SECONDS = 24 * 60 * 60
@@ -228,9 +248,6 @@ DEFAULT_FROM_EMAIL = 'test@test.org'
 MANAGERS = (('Test', 'test@test.org'),)
 ADMINS = (('Test', 'test@test.org'),)
 
-# REDIS settings
-REDIS_HOST = 'localhost'
-REDIS_PORT = '6379'
 BROKER_URL = 'redis://' + REDIS_HOST + ':' + REDIS_PORT + '/0'
 BROKER_TRANSPORT_OPTIONS = {'visibility_timeout': 3600}
 CELERY_RESULT_BACKEND = 'redis://' + REDIS_HOST + ':' + REDIS_PORT + '/0'

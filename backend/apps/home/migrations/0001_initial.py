@@ -4,6 +4,9 @@ import apps.home.models
 from django.db import migrations, models
 import easy_thumbnails.fields
 
+import apps.products
+import apps.products.utils
+
 
 class Migration(migrations.Migration):
 
@@ -21,7 +24,7 @@ class Migration(migrations.Migration):
                 ('updated_at', models.DateTimeField(auto_now=True, verbose_name='Обновлено')),
                 ('title', models.CharField(max_length=255, verbose_name='Название')),
                 ('short_description', models.CharField(max_length=255, verbose_name='Краткое описание')),
-                ('image', easy_thumbnails.fields.ThumbnailerImageField(blank=True, upload_to=apps.home.models.upload_to)),
+                ('image', easy_thumbnails.fields.ThumbnailerImageField(blank=True, upload_to=apps.products.utils.get_products_upload_to_folder)),
                 ('is_enabled', models.BooleanField(default=True, verbose_name='Включено')),
             ],
             options={

@@ -2,8 +2,10 @@ from django.views.generic.base import TemplateView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import FormView
 
-from .models import ProductType, Product, ContactData, PageData
+from .models import PageData
 from .forms import OrderForm
+from apps.products.models import ProductType, Product
+from apps.contacts.services import contacts_get_data
 
 
 class HomeView(TemplateView):
@@ -15,23 +17,7 @@ class HomeView(TemplateView):
 
         context['product_types'] = ProductType.objects.enabled()
         context['products'] = Product.objects.enabled()
-        context['contact_data'] = ContactData.objects.first()
-        context['page_data'] = PageData.objects.first()
-
-        return context
-
-
-class ProductDetailView(DetailView):
-    """Отображает страницу продукта."""
-    model = Product
-    template_name = 'home/product.html'
-
-    def get_context_data(self, **kwargs):
-        context = super(ProductDetailView, self).get_context_data(**kwargs)
-
-        context['product_types'] = ProductType.objects.enabled()
-        context['products'] = Product.objects.enabled()
-        context['contact_data'] = ContactData.objects.first()
+        context['contact_data'] = contacts_get_data()
         context['page_data'] = PageData.objects.first()
 
         return context

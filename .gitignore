@@ -4,3 +4,5 @@ static
 cache
 docker-compose.yml
 Dockerfile
+etc/ssl
+etc/service.conf

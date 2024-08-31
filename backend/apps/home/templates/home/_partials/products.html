@@ -19,7 +19,7 @@
         <!-- Cube Portfolio Blocks - Filter -->
         <ul id="filterControls" class="d-block list-inline text-center g-mb-50">
             <li class="list-inline-item cbp-filter-item cbp-filter-item-active g-brd-around g-brd-gray-light-v4 g-brd-primary--active g-color-gray-dark-v4 g-color-primary--hover g-color-primary--active g-font-size-12 rounded g-transition-0_3 g-px-20 g-py-7 mb-2"
-                role="button" data-filter="*">Всё
+                role="button" data-filter="*">{% trans "Всe" %}
             </li>
             {% for type in product_types %}
                 <li class="list-inline-item cbp-filter-item g-brd-around g-brd-gray-light-v4 g-brd-primary--active g-color-gray-dark-v4 g-color-primary--hover g-color-primary--active g-font-size-12 rounded g-transition-0_3 g-px-20 g-py-7 mb-2"
@@ -62,8 +62,8 @@
                         {% endif %}
                     </div>
                     <div class="g-bg-white text-center g-pa-15 g-min-height-115">
-                        <a class="cbp-singlePageInline product-{{ product.slug }}"
-                           href="{% url 'product-description' slug=product.slug %}"
+                        <a class="product-{{ product.slug }}"
+                           href="{% url 'products:detail' slug=product.slug %}"
                            rel="nofollow">
                             <h3 class="h6 g-color-black g-font-weight-700 mb-1 cbp-l-grid-products-title">{{ product.title }}</h3>
                         </a>

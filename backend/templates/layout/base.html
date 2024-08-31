@@ -1,0 +1,142 @@
+{% load static %}
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <!-- Title -->
+    <title>{{ page_data.meta_title }}</title>
+
+    <!-- Required Meta Tags Always Come First -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <meta name="keywords" content="{{ page_data.meta_keywords }}"/>
+    <meta name="description" content="{{ page_data.meta_description }}"/>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans%3A400%2C300%2C500%2C600%2C700%7CPlayfair+Display%7CRoboto%7CRaleway%7CSpectral%7CRubik">
+    <!-- CSS Customization -->
+    <link rel="stylesheet" href="{% static 'css/bundle.min.css' %}">
+
+    {% include '_partials/alternates_hrefs.html' %}
+
+    {{ page_data.ga_html|safe }}
+</head>
+
+<body>
+<main class="g-pt-130 g-pt-140--md g-pt-170--lg">
+
+    <!-- HEADER -->
+    {% include "home/_partials/header.html" %}
+
+    <!-- FOOTER -->
+    {% include "home/_partials/footer.html" %}
+    <!-- /FOOTER -->
+
+    <a class="js-go-to u-go-to-v1" href="#!" data-type="fixed" data-position='{
+     "bottom": 15,
+     "right": 15
+   }' data-offset-top="400" data-compensation="#js-header" data-show-effect="zoomIn">
+        <i class="hs-icon hs-icon-arrow-top"></i>
+    </a>
+</main>
+
+<script src="{% static 'js/bundle.min.js' %}"></script>
+
+<!-- JS Plugins Init. -->
+<script>
+    $(document).on('ready', function () {
+        // initialization of carousel
+        $.HSCore.components.HSCarousel.init('.js-carousel');
+
+        // initialization of HSDropdown component
+        $.HSCore.components.HSDropdown.init($('[data-dropdown-target]'), {
+            afterOpen: function () {
+                $(this).find('input[type="search"]').focus();
+            }
+        });
+
+        // initialization of HSScrollNav
+        $.HSCore.components.HSScrollNav.init($('#js-scroll-nav'), {
+            duration: 700
+        });
+
+        // initialization of cubeportfolio
+        $.HSCore.components.HSCubeportfolio.init('.cbp');
+
+        var forms = [$('#promo-form'), $('#promo-form-modal'), $('#contact-form')];
+        forms.forEach(function(item) {
+            item.ajaxForm({
+                beforeSubmit: function () {
+                    if (item.valid()) {
+                        item.find(':input').attr("disabled", true);
+                        return true;
+                    }
+                    return false;
+                },
+                success: function () {
+                    item.hide();
+                    item.next().show();
+                },
+                error: function () {
+                    alert('Ошибка сервера!');
+                    item.find(':input').attr("disabled", false);
+                }
+            });
+        });
+
+
+        $.HSCore.helpers.HSFileAttachments.init();
+
+        var validationOptions = {
+            rules: {
+                email: {
+                    required: true,
+                    email: true
+                },
+                message: {
+                    required: true,
+                    minlength: 10
+                },
+                file: {
+                    filesize: 5242880
+                }
+            },
+            messages: {
+                email: {
+                    required: '{% trans "Необхідно заповнити це поле" %}',
+                    email: '{% trans "Поле має містити правильну електронну адресу" %}'
+                },
+                message: {
+                    required: '{% trans "Необхідно заповнити це поле" %}',
+                    minlength: '{% trans "Поле має містити щонайменше 10 символів" %}'
+                }
+            }
+        };
+        $.HSCore.components.HSValidation.init('#promo-form', validationOptions);
+        $.HSCore.components.HSValidation.init('#promo-form-modal', validationOptions);
+        $.HSCore.components.HSValidation.init('#contact-form', validationOptions);
+
+        $.HSCore.components.HSModalWindow.init('[data-modal-target]');
+
+        // initialization of go to section
+        $.HSCore.components.HSGoTo.init('.js-go-to');
+    });
+
+    $(window).on('load', function () {
+        // initialization of header
+        $.HSCore.components.HSHeader.init($('#js-header'));
+        $.HSCore.helpers.HSHamburgers.init('.hamburger');
+    });
+</script>
+<!-- End JS Plugins Init. -->
+
+{% block extra_scripts %}{% endblock %}
+</body>
+
+</html>

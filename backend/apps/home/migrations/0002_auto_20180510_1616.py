@@ -20,7 +20,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='product',
             name='image',
-            field=easy_thumbnails.fields.ThumbnailerImageField(blank=True, upload_to=apps.home.models.upload_to, verbose_name='Изображение'),
+            field=easy_thumbnails.fields.ThumbnailerImageField(blank=True, upload_to=apps.products.utils.get_products_upload_to_folder, verbose_name='Изображение'),
         ),
         migrations.AlterField(
             model_name='product',

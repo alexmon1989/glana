@@ -41,7 +41,9 @@ urlpatterns = [
 ]
 
 urlpatterns += i18n_patterns(
-    path('', include('apps.home.urls')), prefix_default_language=False
+    path('', include('apps.home.urls')), 
+    path('products/', include('apps.products.urls')), 
+    prefix_default_language=False
 )
 
 if settings.DEBUG:
