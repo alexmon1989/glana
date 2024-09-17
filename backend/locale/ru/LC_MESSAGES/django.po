@@ -2,13 +2,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-29 11:41+0000\n"
+"POT-Creation-Date: 2024-09-17 18:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -57,6 +57,7 @@ msgstr ""
 #: apps/home/templates/home/_partials/about.html:49
 #: apps/home/templates/home/_partials/call_to_action.html:14
 #: apps/home/templates/home/_partials/parallaxer.html:15
+#: apps/home/templates/home/product_description.html:20
 msgid "Залишити заявку"
 msgstr "Оставить заявку"
 
@@ -139,7 +140,7 @@ msgid "оплата за допомогою приват-банку"
 msgstr "оплата с помощью приват-банка"
 
 #: apps/home/templates/home/_partials/delivery.html:23
-#: apps/home/templates/home/_partials/delivery.html:44
+#: apps/home/templates/home/_partials/delivery.html:43
 #: apps/home/templates/home/_partials/header.html:97
 #: apps/home/templates/home/_partials/modal_form.html:7
 msgid "Замовити розрахунок"
@@ -161,10 +162,6 @@ msgstr ""
 #: apps/home/templates/home/_partials/delivery.html:38
 msgid "доставка новою поштою"
 msgstr "доставка новой почтой"
-
-#: apps/home/templates/home/_partials/delivery.html:39
-msgid "доставка інтаймом"
-msgstr "доставка интаймом"
 
 #: apps/home/templates/home/_partials/footer.html:8
 msgid "Усі права захищено"
@@ -352,8 +349,8 @@ msgstr ""
 #| "Щоб отримати <span class=\"g-color-primary\">знижку 15%%</span>, "
 #| "подзвоніть нам по телефону"
 msgid ""
-"Щоб отримати <span class=\"g-color-primary\">знижку 15%%</span>, подзвоніть "
-"нам по телефону"
+"Щоб отримати <span class=\"g-color-primary g-font-weight-600\">знижку 15%%</"
+"span>, подзвоніть нам по телефону"
 msgstr ""
 "Чтобы получить <span class=\"g-color-primary\">скидку 15%</span>, позвоните "
 "нам по номеру"
@@ -365,6 +362,10 @@ msgstr "или оставьте заявку"
 #: apps/home/templates/home/_partials/products.html:9
 msgid "Розробимо дизайн та надрукуємо для вас таку продукцію"
 msgstr "Разработаем дизайн и напечатаем для вас такую продукцию"
+
+#: apps/home/templates/home/_partials/products.html:22
+msgid "Всe"
+msgstr ""
 
 #: apps/home/templates/home/_partials/promo.html:11
 msgid "Розрахувати вартість замовлення"
@@ -471,26 +472,30 @@ msgstr ""
 "Сможем отправить ваш заказ любым почтовым перевозчиком по Украине или иным, "
 "удобным для вас, способом."
 
-#: apps/home/templates/home/home.html:147
-#: apps/home/templates/home/home.html:151
+#: apps/home/templates/home/home.html:149
+#: apps/home/templates/home/home.html:153 templates/layout/base.html:112
+#: templates/layout/base.html:116
 msgid "Необхідно заповнити це поле"
 msgstr "Необходимо заполнить это поле"
 
-#: apps/home/templates/home/home.html:148
+#: apps/home/templates/home/home.html:150 templates/layout/base.html:113
 msgid "Поле має містити правильну електронну адресу"
 msgstr "Поле должно содержать правильный E-Mail адрес"
 
-#: apps/home/templates/home/home.html:152
+#: apps/home/templates/home/home.html:154 templates/layout/base.html:117
 msgid "Поле має містити щонайменше 10 символів"
 msgstr "Поле должно содержать минимум 10 символов"
 
-#: backend/settings.py:125
+#: backend/settings.py:128
 msgid "Ukrainian"
 msgstr "Украинский"
 
-#: backend/settings.py:126
+#: backend/settings.py:129
 msgid "Russian"
 msgstr "Русский"
+
+#~ msgid "доставка інтаймом"
+#~ msgstr "доставка интаймом"
 
 #, fuzzy
 #~| msgid "Залишити заявку"
