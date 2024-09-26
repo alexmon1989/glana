@@ -2,7 +2,7 @@
 {% load i18n %}
 
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="{{ request.LANGUAGE_CODE|default:'uk' }}">
 
 <head>
     <!-- Title -->
@@ -32,7 +32,7 @@
 <main class="g-pt-130 g-pt-140--md g-pt-170--lg">
 
     <!-- HEADER -->
-    {% include "home/_partials/header.html" %}
+    {% include "layout/_partials/header.html" %}
 
     <!-- FOOTER -->
     {% include "home/_partials/footer.html" %}
@@ -50,88 +50,12 @@
 
 <!-- JS Plugins Init. -->
 <script>
-    $(document).on('ready', function () {
-        // initialization of carousel
-        $.HSCore.components.HSCarousel.init('.js-carousel');
-
-        // initialization of HSDropdown component
-        $.HSCore.components.HSDropdown.init($('[data-dropdown-target]'), {
-            afterOpen: function () {
-                $(this).find('input[type="search"]').focus();
-            }
-        });
-
-        // initialization of HSScrollNav
-        $.HSCore.components.HSScrollNav.init($('#js-scroll-nav'), {
-            duration: 700
-        });
-
-        // initialization of cubeportfolio
-        $.HSCore.components.HSCubeportfolio.init('.cbp');
-
-        var forms = [$('#promo-form'), $('#promo-form-modal'), $('#contact-form')];
-        forms.forEach(function(item) {
-            item.ajaxForm({
-                beforeSubmit: function () {
-                    if (item.valid()) {
-                        item.find(':input').attr("disabled", true);
-                        return true;
-                    }
-                    return false;
-                },
-                success: function () {
-                    item.hide();
-                    item.next().show();
-                },
-                error: function () {
-                    alert('Ошибка сервера!');
-                    item.find(':input').attr("disabled", false);
-                }
-            });
-        });
-
-
-        $.HSCore.helpers.HSFileAttachments.init();
-
-        var validationOptions = {
-            rules: {
-                email: {
-                    required: true,
-                    email: true
-                },
-                message: {
-                    required: true,
-                    minlength: 10
-                },
-                file: {
-                    filesize: 5242880
-                }
-            },
-            messages: {
-                email: {
-                    required: '{% trans "Необхідно заповнити це поле" %}',
-                    email: '{% trans "Поле має містити правильну електронну адресу" %}'
-                },
-                message: {
-                    required: '{% trans "Необхідно заповнити це поле" %}',
-                    minlength: '{% trans "Поле має містити щонайменше 10 символів" %}'
-                }
-            }
-        };
-        $.HSCore.components.HSValidation.init('#promo-form', validationOptions);
-        $.HSCore.components.HSValidation.init('#promo-form-modal', validationOptions);
-        $.HSCore.components.HSValidation.init('#contact-form', validationOptions);
-
-        $.HSCore.components.HSModalWindow.init('[data-modal-target]');
-
-        // initialization of go to section
-        $.HSCore.components.HSGoTo.init('.js-go-to');
-    });
-
     $(window).on('load', function () {
         // initialization of header
         $.HSCore.components.HSHeader.init($('#js-header'));
         $.HSCore.helpers.HSHamburgers.init('.hamburger');
+
+        $('.js-mega-menu').HSMegaMenu();
     });
 </script>
 <!-- End JS Plugins Init. -->
