@@ -39,12 +39,12 @@
 
                                 <ul class="list-inline g-pl-20 mb-0">
                                     <li class="list-inline-item g-valign-middle">
-                                        <a href="#">
+                                        <a href="https://t.me/{{ contact_data.phone|clear_number }}" target="_blank">
                                             <img class="g-height-30" src="{% static 'img/icons/icons8-telegram.svg' %}" alt="">
                                         </a>
                                     </li>
                                     <li class="list-inline-item g-valign-middle">
-                                        <a href="#">
+                                        <a href="viber://chat?number={{ contact_data.phone|clear_number }}">
                                             <img class="g-height-30" src="{% static 'img/icons/icons8-viber.svg' %}" alt="">
                                         </a>
                                     </li>
@@ -57,15 +57,20 @@
                                 <span class="g-valign-middle g-font-size-18 g-color-primary g-mr-5"><i class="fa fa-camera-retro"></i></span>
                                 <span class="text-uppercase g-font-size-13">{% trans 'Ми у соцмережах' %}</span>
                                 <ul class="list-inline g-pl-20 mb-0">
-                                    <li class="list-inline-item g-valign-middle">
-                                        <a class="d-block u-icon-v3 u-icon-size--xs g-rounded-50x g-bg-gray-light-v4 g-color-gray-dark-v4 g-bg-primary--hover g-color-white--hover"
-                                           href="{{ contact_data.instagram_link }}"><i class="fa fa-instagram "></i></a>
-                                    </li>
-                                    <li class="list-inline-item g-valign-middle">
-                                        <a class="d-block u-icon-v3 u-icon-size--xs g-rounded-50x g-bg-gray-light-v4 g-color-gray-dark-v4 g-bg-primary--hover g-color-white--hover"
-                                           href="{{ contact_data.fb_link }}"><i
-                                                class="fa fa-facebook g-font-size-default"></i></a>
-                                    </li>
+                                    {% if contact_data.instagram_link %}
+                                        <li class="list-inline-item g-valign-middle">
+                                            <a class="d-block u-icon-v3 u-icon-size--xs g-rounded-50x g-bg-gray-light-v4 g-color-gray-dark-v4 g-bg-primary--hover g-color-white--hover"
+                                               href="{{ contact_data.instagram_link }}"><i class="fa fa-instagram "></i></a>
+                                        </li>
+                                    {% endif %}
+
+                                    {% if contact_data.fb_link %}
+                                        <li class="list-inline-item g-valign-middle">
+                                            <a class="d-block u-icon-v3 u-icon-size--xs g-rounded-50x g-bg-gray-light-v4 g-color-gray-dark-v4 g-bg-primary--hover g-color-white--hover"
+                                               href="{{ contact_data.fb_link }}"><i
+                                                    class="fa fa-facebook g-font-size-default"></i></a>
+                                        </li>
+                                    {% endif %}
                                 </ul>
                             </div>
                         </div>
@@ -93,7 +98,7 @@
                             data-animation-out="fadeOut"
                             data-position="right">
                             <a id="mega-menu-label-3" class="nav-link g-color-primary--hover p-0" href="#!" aria-haspopup="true"
-                               aria-expanded="false">Продукція
+                               aria-expanded="false">{% trans 'Продукція' %}
                                 <i class="hs-icon hs-icon-arrow-bottom g-font-size-11 g-ml-7"></i>
                             </a>
 

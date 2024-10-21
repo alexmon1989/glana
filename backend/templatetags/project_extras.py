@@ -23,3 +23,8 @@ def product_types() -> list:
 @register.simple_tag
 def contact_data() -> ContactData:
     return contacts_get_data()
+
+
+@register.filter
+def clear_number(value: str):
+    return value.replace(' ', '').replace('(', '').replace(')', '').replace('-', '')

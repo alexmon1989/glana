@@ -1,10 +1,11 @@
 {% load static %}
 {% load i18n %}
+{% load project_extras %}
 
 <header id="js-header" class="u-header u-header--sticky-top u-header--toggle-section u-header--change-appearance"
         data-header-fix-moment="200"
         data-header-fix-effect="slide">
-    <div class="text-center text-lg-left u-header__section u-header__section--hidden u-header__section--light g-bg-white g-brd-bottom g-brd-gray-light-v4 g-py-20">
+    <div class="text-center text-lg-left u-header__section u-header__section--hidden u-header__section--light g-bg-white g-brd-bottom g-brd-gray-light-v4 g-py-10">
         <div class="container">
             <div class="row flex-lg-row align-items-center justify-content-lg-start">
                 <div class="col-6 col-sm-3 col-lg-2">
@@ -21,36 +22,55 @@
                         <div class="col-sm g-brd-right--sm g-brd-gray-light-v4">
                             <div class="g-py-10--lg g-pl-10--lg">
                                 <span class="g-valign-middle g-font-size-18 g-color-primary g-mr-5"><i class="fa fa-phone"></i></span>
-                                <span class="text-uppercase g-font-size-13">{% trans 'Дзвоніть' %}</span>
-                                <strong class="d-block"><a class="g-color-main" href="tel:{{ contact_data.phone }}">{{ contact_data.phone }}</a></strong>
+                                <span class="text-uppercase g-font-size-13">{% trans 'Телефон' %}</span>
+                                <strong class="d-block">
+                                    <a class="g-color-main g-font-size-16"
+                                       href="tel:{{ contact_data.phone }}">{{ contact_data.phone }}</a>
+                                </strong>
                             </div>
                         </div>
 
                         <div class="col-sm g-hidden-lg-down g-brd-right--sm g-brd-gray-light-v4">
                             <div class="g-pa-10--lg">
-                                <span class="g-valign-middle g-font-size-18 g-color-primary g-mr-5"><i class="fa fa-clock-o"></i></span>
-                                <span class="text-uppercase g-font-size-13">{% trans 'Ми відкриті' %}</span>
-                                <strong class="d-block g-pl-25">Пн-Пт: 09.00 - 18.00</strong>
-                            </div>
-                        </div>
-
-                        <div class="col-sm g-hidden-sm-down g-brd-right--sm g-brd-gray-light-v4">
-                            <div class="g-pa-10--lg">
-                                <span class="g-valign-middle g-font-size-18 g-color-primary g-mr-5"><i class="fa fa-envelope"></i></span>
+                                <span class="g-valign-middle g-font-size-18 g-color-primary g-mr-5"><i class="fa fa-pencil"></i></span>
                                 <span class="text-uppercase g-font-size-13">{% trans 'Напишіть нам' %}</span>
-                                <strong class="d-block g-pl-25"><a class="g-color-main" href="mailto:{{ contact_data.contact_email }}">{{ contact_data.contact_email }}</a></strong>
+
+                                <ul class="list-inline g-pl-20 mb-0">
+                                    <li class="list-inline-item g-valign-middle">
+                                        <a href="https://t.me/{{ contact_data.phone|clear_number }}" target="_blank">
+                                            <img class="g-height-30" src="{% static 'img/icons/icons8-telegram.svg' %}" alt="">
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item g-valign-middle">
+                                        <a href="viber://chat?number={{ contact_data.phone|clear_number }}">
+                                            <img class="g-height-30" src="{% static 'img/icons/icons8-viber.svg' %}" alt="">
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
 
-                        <div class="col-sm g-hidden-sm-down g-brd-right--sm g-brd-gray-light-v4 d-flex align-items-center justify-content-center">
-                            <ul class="list-inline mb-0 g-pa-10--lg">
-                                <li class="list-inline-item g-valign-middle g-mx-3">
-                                    <a class="d-block u-icon-v3 u-icon-size--sm g-rounded-50x g-bg-gray-light-v4 g-color-gray-dark-v4 g-bg-primary--hover g-color-white--hover" href="{{ contact_data.fb_link }}"><i class="fa fa-facebook g-font-size-default"></i></a>
-                                </li>
-                                <li class="list-inline-item g-valign-middle g-mx-3">
-                                    <a class="d-block u-icon-v3 u-icon-size--sm g-rounded-50x g-bg-gray-light-v4 g-color-gray-dark-v4 g-bg-primary--hover g-color-white--hover" href="{{ contact_data.instagram_link }}"><i class="fa fa-instagram g-font-size-default"></i></a>
-                                </li>
-                            </ul>
+                        <div class="col-sm g-hidden-lg-down g-brd-right--sm g-brd-gray-light-v4">
+                            <div class="g-pa-10--lg">
+                                <span class="g-valign-middle g-font-size-18 g-color-primary g-mr-5"><i class="fa fa-camera-retro"></i></span>
+                                <span class="text-uppercase g-font-size-13">{% trans 'Ми у соцмережах' %}</span>
+                                <ul class="list-inline g-pl-20 mb-0">
+                                    {% if contact_data.instagram_link %}
+                                        <li class="list-inline-item g-valign-middle">
+                                            <a class="d-block u-icon-v3 u-icon-size--xs g-rounded-50x g-bg-gray-light-v4 g-color-gray-dark-v4 g-bg-primary--hover g-color-white--hover"
+                                               href="{{ contact_data.instagram_link }}"><i class="fa fa-instagram "></i></a>
+                                        </li>
+                                    {% endif %}
+
+                                    {% if contact_data.fb_link %}
+                                        <li class="list-inline-item g-valign-middle">
+                                            <a class="d-block u-icon-v3 u-icon-size--xs g-rounded-50x g-bg-gray-light-v4 g-color-gray-dark-v4 g-bg-primary--hover g-color-white--hover"
+                                               href="{{ contact_data.fb_link }}"><i
+                                                    class="fa fa-facebook g-font-size-default"></i></a>
+                                        </li>
+                                    {% endif %}
+                                </ul>
+                            </div>
                         </div>
 
                         {% include 'home/_partials/languages.html' %}
