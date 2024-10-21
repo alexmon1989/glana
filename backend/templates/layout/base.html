@@ -6,15 +6,15 @@
 
 <head>
     <!-- Title -->
-    <title>{{ page_data.meta_title }}</title>
+    <title>{% block meta_title %}{% endblock %} | Глана</title>
 
     <!-- Required Meta Tags Always Come First -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <meta name="keywords" content="{{ page_data.meta_keywords }}"/>
-    <meta name="description" content="{{ page_data.meta_description }}"/>
+    <meta name="keywords" content="{% block meta_keyword %}{% endblock %}"/>
+    <meta name="description" content="{% block meta_description %}{% endblock %}"/>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="{% static 'img/favicon.png' %}">
@@ -29,20 +29,25 @@
 </head>
 
 <body>
-<main class="g-pt-130 g-pt-140--md g-pt-170--lg">
-
+<main class="g-pt-170--lg">
     <!-- HEADER -->
     {% include "layout/_partials/header.html" %}
+
+    {% block content %}{% endblock %}
 
     <!-- FOOTER -->
     {% include "home/_partials/footer.html" %}
     <!-- /FOOTER -->
 
+    <!-- MODAL FORM -->
+    {% include "layout/_partials/order_modal_form.html" %}
+    <!-- /MODAL FORM -->
+
     <a class="js-go-to u-go-to-v1" href="#!" data-type="fixed" data-position='{
-     "bottom": 15,
-     "right": 15
-   }' data-offset-top="400" data-compensation="#js-header" data-show-effect="zoomIn">
-        <i class="hs-icon hs-icon-arrow-top"></i>
+         "bottom": 15,
+         "right": 15
+       }' data-offset-top="400" data-compensation="#js-header" data-show-effect="zoomIn">
+            <i class="hs-icon hs-icon-arrow-top"></i>
     </a>
 </main>
 
@@ -56,6 +61,74 @@
         $.HSCore.helpers.HSHamburgers.init('.hamburger');
 
         $('.js-mega-menu').HSMegaMenu();
+    });
+
+    $(document).on('ready', function () {
+        $.HSCore.components.HSTabs.init('[role="tablist"]');
+
+        var forms = [$('#promo-form'), $('#promo-form-modal'), $('#contact-form')];
+        forms.forEach(function(item) {
+            item.ajaxForm({
+                beforeSubmit: function () {
+                    if (item.valid()) {
+                        item.find(':input').attr("disabled", true);
+                        return true;
+                    }
+                    return false;
+                },
+                success: function () {
+                    item.hide();
+                    item.next().show();
+                },
+                error: function () {
+                    alert('Ошибка сервера!');
+                    item.find(':input').attr("disabled", false);
+                }
+            });
+        });
+
+
+        $.HSCore.helpers.HSFileAttachments.init();
+
+        var validationOptions = {
+            rules: {
+                email: {
+                    required: true,
+                    email: true
+                },
+                message: {
+                    required: true,
+                    minlength: 10
+                },
+                file: {
+                    filesize: 5242880
+                }
+            },
+            messages: {
+                email: {
+                    required: '{% trans "Необхідно заповнити це поле" %}',
+                    email: '{% trans "Поле має містити правильну електронну адресу" %}'
+                },
+                message: {
+                    required: '{% trans "Необхідно заповнити це поле" %}',
+                    minlength: '{% trans "Поле має містити щонайменше 10 символів" %}'
+                }
+            }
+        };
+        $.HSCore.components.HSValidation.init('#promo-form', validationOptions);
+        $.HSCore.components.HSValidation.init('#promo-form-modal', validationOptions);
+        $.HSCore.components.HSValidation.init('#contact-form', validationOptions);
+
+        $.HSCore.components.HSModalWindow.init('[data-modal-target]');
+
+        // initialization of go to section
+        $.HSCore.components.HSGoTo.init('.js-go-to');
+    });
+
+    $(window).on('resize', function () {
+        setTimeout(function () {
+            $.HSCore.components.HSTabs.init('[role="tablist"]');
+        }, 200);
     });
 </script>
 <!-- End JS Plugins Init. -->

@@ -512,6 +512,10 @@
     @include px-to-rem(padding-top, 170px !important);
   }
 
+  .g-pt-180--lg {
+    @include px-to-rem(padding-top, 180px !important);
+  }
+
   .g-pb-200--lg {
     @include px-to-rem(padding-bottom, 200px !important);
   }

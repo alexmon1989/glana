@@ -1,0 +1,34 @@
+{% load i18n %}
+
+<div class="g-px-40--lg g-pt-70">
+    <!-- Product Info -->
+    <div class="g-mb-30">
+        <h1 class="g-font-weight-600 mb-4">{{ product.meta_h1|default:product.title }}</h1>
+        {{ product.short_description_2|default_if_none:''|safe }}
+    </div>
+    <!-- End Product Info -->
+
+    <!-- Price -->
+    <div class="g-mb-30">
+        <h2 class="g-font-weight-600 g-font-size-14 text-uppercase mb-2">{% trans 'Вартість' %}</h2>
+
+        {% if product.price_unknown %}
+            <p class="text-danger">{% trans 'Зателефонуйте або залиште заявку для детального розрахунку вартості вашого замовлення.' %}</p>
+        {% else %}
+            <div class="g-mt-20">{{ product.price_description|default_if_none:''|safe }}</div>
+        {% endif %}
+    </div>
+    <!-- End Price -->
+
+    <!-- Buttons -->
+    <div class="row g-mx-minus-5 g-mb-20">
+        <div class="col g-px-5 g-mb-10">
+            <a href="#price-request"
+               data-modal-target="#price-request"
+               data-modal-effect="fadein"
+               class="btn btn-block text-uppercase u-btn-primary g-font-weight-700 g-font-size-12 g-brd-none g-rounded-4 g-py-15 g-px-25"
+            >{% trans 'Замовити розрахунок' %}</a>
+        </div>
+    </div>
+    <!-- End Buttons -->
+</div>

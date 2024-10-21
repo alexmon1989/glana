@@ -1,5 +1,5 @@
 from django.db import models
-from backend.abstract_models import CacheClearModel
+from apps.core.models import CacheClearModel
 
 
 class ContactData(CacheClearModel):

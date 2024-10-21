@@ -1,0 +1,36 @@
+{% load i18n %}
+
+<ul class="nav u-nav-v4-1 u-nav-primary g-font-weight-600" role="tablist"
+    data-target="nav-4-1-primary-hor-center" data-tabs-mobile-type="slide-up-down"
+    data-btn-classes="btn btn-md btn-block u-btn-outline-primary">
+    <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#nav-4-1-primary-hor-center--1" role="tab">{% trans 'Характеристики' %}</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#nav-4-1-primary-hor-center--2" role="tab">{% trans 'Опис' %}</a>
+    </li>
+</ul>
+
+<div id="nav-4-1-primary-hor-center" class="tab-content g-pt-20">
+    <div class="tab-pane fade show active" id="nav-4-1-primary-hor-center--1" role="tabpanel">
+        <!-- Table Striped Rows -->
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped table-product-properties">
+                <tbody>
+                    {% for property in product.productproperty_set.all %}
+                        <tr>
+                            <td width="30%" class="g-nowrap">
+                                <i class="fa fa-check-square g-color-primary g-mr-5"></i>{{ property.title|safe }}
+                            </td>
+                            <td>{{ property.value }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <!-- End Table Striped Rows -->
+    </div>
+    <div class="tab-pane fade" id="nav-4-1-primary-hor-center--2" role="tabpanel">
+        {{ product.long_description|safe }}
+    </div>
+</div>

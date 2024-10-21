@@ -1,1 +1,36 @@
 {% extends 'layout/base.html' %}
+
+{% load i18n %}
+
+{% block meta_title %}{{ product.meta_title|default:product.title }}{% endblock %}
+{% block meta_keyword %}{{ product.meta_keyword|default:'' }}{% endblock %}
+{% block meta_description %}{{ product.meta_description|default:'' }}{% endblock %}
+
+{% block content %}
+    {% include 'products/detail/_partials/breadcrumbs.html' %}
+
+    <section class="container g-py-50">
+
+        <div class="row">
+            <div class="col-lg-7">
+                {% include 'products/detail/_partials/image.html' %}
+            </div>
+
+            <div class="col-lg-5">
+                {% include 'products/detail/_partials/product_info.html' %}
+            </div>
+
+            <div class="col-lg-12 g-pt-50--lg">
+                {% include 'products/detail/_partials/tabs.html' %}
+            </div>
+        </div>
+    </section>
+
+    <div class="container g-mb-30">
+        {% include 'products/detail/_partials/delivery.html' %}
+    </div>
+
+    {% if product.related_products.count > 0 %}
+        {% include 'products/detail/_partials/related_products.html' %}
+    {% endif %}
+{% endblock %}

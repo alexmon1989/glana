@@ -1,5 +1,5 @@
 from django.db import models
-from backend.abstract_models import TimeStampedModel, SeoModel
+from apps.core.models import TimeStampedModel, SeoModel
 
 
 class PageData(SeoModel, TimeStampedModel):

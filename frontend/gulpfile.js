@@ -98,6 +98,7 @@ gulp.task('js', function () {
         config.srcDir + '/js/components/hs.validation.js',
         config.srcDir + '/js/components/hs.modal-window.js',
         config.srcDir + '/js/components/hs.go-to.js',
+        config.srcDir + '/js/components/hs.tabs.js',
         config.srcDir + '/js/custom.js'
     ])
         .pipe(concat('bundle.min.js'))
