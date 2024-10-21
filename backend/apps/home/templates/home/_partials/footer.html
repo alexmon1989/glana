@@ -11,12 +11,19 @@
 
             <div class="col-md-6">
                 <ul class="list-inline float-md-right mb-0">
-                    <li class="list-inline-item g-mr-10">
-                        <a class="u-icon-v3 g-width-28 g-height-28 g-font-size-14 g-color-gray-light-v9 g-color-white--hover g-brd-gray-dark-v2 g-bg-gray-dark-v2 g-bg-primary--hover g-rounded-4 g-transition-0_2 g-transition--ease-in" href="{{ contact_data.fb_link }}"><i class="fa fa-facebook"></i></a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="u-icon-v3 g-width-28 g-height-28 g-font-size-14 g-color-gray-light-v9 g-color-white--hover g-brd-gray-dark-v2 g-bg-gray-dark-v2 g-bg-primary--hover g-rounded-4 g-transition-0_2 g-transition--ease-in" href="{{ contact_data.instagram_link }}"><i class="fa fa-instagram"></i></a>
-                    </li>
+                    {% if contact_data.fb_link %}
+                        <li class="list-inline-item g-mr-10">
+                            <a class="u-icon-v3 g-width-28 g-height-28 g-font-size-14 g-color-gray-light-v9 g-color-white--hover g-brd-gray-dark-v2 g-bg-gray-dark-v2 g-bg-primary--hover g-rounded-4 g-transition-0_2 g-transition--ease-in"
+                               href="{{ contact_data.fb_link }}"><i class="fa fa-facebook"></i></a>
+                        </li>
+                    {% endif %}
+
+                    {% if contact_data.instagram_link %}
+                        <li class="list-inline-item">
+                            <a class="u-icon-v3 g-width-28 g-height-28 g-font-size-14 g-color-gray-light-v9 g-color-white--hover g-brd-gray-dark-v2 g-bg-gray-dark-v2 g-bg-primary--hover g-rounded-4 g-transition-0_2 g-transition--ease-in"
+                               href="{{ contact_data.instagram_link }}"><i class="fa fa-instagram"></i></a>
+                        </li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
