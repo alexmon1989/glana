@@ -4,7 +4,7 @@ from django.views.generic.edit import FormView
 
 from .models import PageData
 from .forms import OrderForm
-from apps.products.models import ProductType, Product
+from apps.products.models import ProductType, Product, DeliveryPaymentDescription
 from apps.contacts.services import contacts_get_data
 
 
@@ -19,6 +19,8 @@ class HomeView(TemplateView):
         context['products'] = Product.objects.enabled()
         context['contact_data'] = contacts_get_data()
         context['page_data'] = PageData.objects.first()
+        context['page_data'] = PageData.objects.first()
+        context['delivery_desc'] = DeliveryPaymentDescription.objects.first()
 
         return context
 

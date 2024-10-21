@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-17 18:43+0000\n"
+"POT-Creation-Date: 2024-10-21 19:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -87,8 +87,9 @@ msgid "Контактні дані"
 msgstr "Контактные данные"
 
 #: apps/home/templates/home/_partials/contacts.html:15
-#: apps/home/templates/home/_partials/modal_form.html:26
 #: apps/home/templates/home/_partials/promo.html:29
+#: templates/layout/_partials/header.html:27
+#: templates/layout/_partials/order_modal_form.html:26
 msgid "Телефон"
 msgstr "Телефон"
 
@@ -105,13 +106,13 @@ msgid "Ваш email"
 msgstr "Ваш email"
 
 #: apps/home/templates/home/_partials/contacts.html:52
-#: apps/home/templates/home/_partials/modal_form.html:45
 #: apps/home/templates/home/_partials/promo.html:48
+#: templates/layout/_partials/order_modal_form.html:45
 msgid "Повідомлення"
 msgstr "Сообщение"
 
 #: apps/home/templates/home/_partials/contacts.html:58
-#: apps/home/templates/home/_partials/modal_form.html:67
+#: templates/layout/_partials/order_modal_form.html:67
 msgid "Відправити"
 msgstr "Отправить"
 
@@ -142,12 +143,15 @@ msgstr "оплата с помощью приват-банка"
 #: apps/home/templates/home/_partials/delivery.html:23
 #: apps/home/templates/home/_partials/delivery.html:43
 #: apps/home/templates/home/_partials/header.html:97
-#: apps/home/templates/home/_partials/modal_form.html:7
+#: apps/products/templates/products/detail/_partials/product_info.html:30
+#: templates/layout/_partials/header.html:146
+#: templates/layout/_partials/order_modal_form.html:7
 msgid "Замовити розрахунок"
 msgstr "Заказать просчёт"
 
 #: apps/home/templates/home/_partials/delivery.html:35
-#: apps/home/templates/home/_partials/promo.html:176
+#: apps/home/templates/home/_partials/header.html:83
+#: apps/home/templates/home/_partials/job_scheme.html:98
 msgid "Доставка"
 msgstr "Доставка"
 
@@ -176,10 +180,12 @@ msgid "Ми відкриті"
 msgstr "Мы открыты"
 
 #: apps/home/templates/home/_partials/header.html:40
+#: templates/layout/_partials/header.html:38
 msgid "Напишіть нам"
 msgstr "Напишите нам"
 
 #: apps/home/templates/home/_partials/header.html:71
+#: templates/layout/_partials/header.html:88
 msgid "Головна"
 msgstr "Главная"
 
@@ -189,6 +195,7 @@ msgid "Продукція"
 msgstr "Продукция"
 
 #: apps/home/templates/home/_partials/header.html:77
+#: templates/layout/_partials/header.html:127
 msgid "Про нас"
 msgstr "О нас"
 
@@ -197,11 +204,8 @@ msgstr "О нас"
 msgid "Схема роботи"
 msgstr "Схема работы"
 
-#: apps/home/templates/home/_partials/header.html:83
-msgid "Оплата і доставка"
-msgstr "Оплата и доставка"
-
 #: apps/home/templates/home/_partials/header.html:86
+#: templates/layout/_partials/header.html:135
 msgid "Контакти"
 msgstr "Контакты"
 
@@ -305,55 +309,21 @@ msgstr ""
 "технологической карте заказа. После этого свяжется с вами для уточнения "
 "способа доставки."
 
-#: apps/home/templates/home/_partials/job_scheme.html:98
-msgid "Оплата, доставка"
-msgstr "Оплата, доставка"
-
 #: apps/home/templates/home/_partials/job_scheme.html:99
 msgid ""
-"Ви зможете оплатити замовлення та доставку замовлення зручним для вас "
-"способом\n"
+"Ви обрати доставку замовлення зручним для вас способом\n"
 "                                        <a class=\"scrollTo\" "
 "href=\"#delivery\">Детальніше.</a>"
 msgstr ""
-"Вы сможете оплатить заказ и доставку заказа удобным для вас способом\n"
+"Вы выбрать доставку заказа удобным для вас способом\n"
 "                                        <a class=\"scrollTo\" "
 "href=\"#delivery\">Детальнее.</a>"
 
-#: apps/home/templates/home/_partials/modal_form.html:8
-msgid "Будь ласка, заповніть форму нижче для уточнення деталей"
-msgstr ""
-"Пожалуйста, заполните форму ниже и мы свяжемся с вами для уточнения деталей"
-
-#: apps/home/templates/home/_partials/modal_form.html:17
-#: apps/home/templates/home/_partials/promo.html:20
-msgid "Ім'я"
-msgstr "Имя"
-
-#: apps/home/templates/home/_partials/modal_form.html:57
-#: apps/home/templates/home/_partials/promo.html:57
-msgid "Огляд"
-msgstr "Обзор"
-
-#: apps/home/templates/home/_partials/modal_form.html:77
-msgid ""
-"<strong>Дякуємо!</strong> Ваше повідомлення було відправлене. Найближчим "
-"часом менеджер зв'яжеться з вами."
-msgstr ""
-"<strong>Спасибо!</strong> Ваше сообщение было отправлено. В ближайшее время "
-"мененджер свяжется с вами."
-
 #: apps/home/templates/home/_partials/parallaxer.html:10
-#, fuzzy, python-format
-#| msgid ""
-#| "Щоб отримати <span class=\"g-color-primary\">знижку 15%%</span>, "
-#| "подзвоніть нам по телефону"
 msgid ""
-"Щоб отримати <span class=\"g-color-primary g-font-weight-600\">знижку 15%%</"
-"span>, подзвоніть нам по телефону"
-msgstr ""
-"Чтобы получить <span class=\"g-color-primary\">скидку 15%</span>, позвоните "
-"нам по номеру"
+"Для отримання індивідуального розрахунку вартості замовлення, подзвоніть нам "
+"по телефону"
+msgstr "Для получения индивидуального просчёта стоимости заказа позвоните нам по телефону"
 
 #: apps/home/templates/home/_partials/parallaxer.html:10
 msgid "або залиште заявку"
@@ -365,11 +335,21 @@ msgstr "Разработаем дизайн и напечатаем для ва�
 
 #: apps/home/templates/home/_partials/products.html:22
 msgid "Всe"
-msgstr ""
+msgstr "Все"
 
 #: apps/home/templates/home/_partials/promo.html:11
 msgid "Розрахувати вартість замовлення"
 msgstr "Рассчитать стоимость заказа"
+
+#: apps/home/templates/home/_partials/promo.html:20
+#: templates/layout/_partials/order_modal_form.html:17
+msgid "Ім'я"
+msgstr "Имя"
+
+#: apps/home/templates/home/_partials/promo.html:57
+#: templates/layout/_partials/order_modal_form.html:57
+msgid "Огляд"
+msgstr "Обзор"
 
 #: apps/home/templates/home/_partials/promo.html:65
 msgid "Відправити запит"
@@ -409,82 +389,44 @@ msgid "Виготовлення табличок (офісних, адресни
 msgstr "Изготовление табличек (офисных, адресных)."
 
 #: apps/home/templates/home/_partials/promo.html:93
-#: apps/home/templates/home/_partials/promo.html:145
-#: apps/home/templates/home/_partials/promo.html:166
-#: apps/home/templates/home/_partials/promo.html:186
 msgid "Дізнатися більше"
 msgstr "Узнать больше"
 
-#: apps/home/templates/home/_partials/promo.html:107
-#, fuzzy, python-format
-#| msgid ""
-#| "Замовте прорахунок вартості для отримання <span class=\"g-color-"
-#| "primary\">15%% знижки</span>"
-msgid ""
-"Замовте прорахунок вартості для отримання <span class=\"g-color-"
-"primary\">15%% знижки</span>"
-msgstr ""
-"Закажите просчёт стоимости для получения <span class=\"g-color-primary\">15% "
-"скидки</span>"
-
-#: apps/home/templates/home/_partials/promo.html:109
-msgid "Також знижку можна отримати зателефонувавши нашому менеджеру за номером"
-msgstr "Также скидку можно получить позвонив нашему менеджеру по номеру"
-
-#: apps/home/templates/home/_partials/promo.html:119
-msgid "Замовати розрахунок"
-msgstr "Заказать просчёт"
-
-#: apps/home/templates/home/_partials/promo.html:134
-msgid "Розробка дизайну поліграфії"
-msgstr "Разработка дизайна полиграфии"
-
-#: apps/home/templates/home/_partials/promo.html:141
-msgid "Розробка дизайну"
-msgstr "Разработка дизайна"
-
-#: apps/home/templates/home/_partials/promo.html:143
-msgid ""
-"До ваших послуг команда професійних дизайнерів для швидкої розробки макетів "
-"будь-якої складності"
-msgstr ""
-"К вашим услугам команда профессиональных дизайнеров для быстрой разработки "
-"макетов любой сложности"
-
-#: apps/home/templates/home/_partials/promo.html:162
-msgid "Друк поліграфії"
-msgstr "Печать полиграфии"
-
-#: apps/home/templates/home/_partials/promo.html:164
-msgid ""
-"Офсетний та цифровий друк продукції будь-якої складності у будь-яких обсягах."
-msgstr "Офсетная и цифровая печать продукции любой сложности в любых объёмах."
-
-#: apps/home/templates/home/_partials/promo.html:182
-msgid "Доставка у термін"
-msgstr "Доставка в срок"
-
-#: apps/home/templates/home/_partials/promo.html:184
-msgid ""
-"Зможемо відправити ваше замовлення будь-якою поштовою службою по Україні або "
-"іншим, зручним для вас, способом."
-msgstr ""
-"Сможем отправить ваш заказ любым почтовым перевозчиком по Украине или иным, "
-"удобным для вас, способом."
-
-#: apps/home/templates/home/home.html:149
-#: apps/home/templates/home/home.html:153 templates/layout/base.html:112
-#: templates/layout/base.html:116
+#: apps/home/templates/home/home.html:141
+#: apps/home/templates/home/home.html:145 templates/layout/base.html:109
+#: templates/layout/base.html:113
 msgid "Необхідно заповнити це поле"
 msgstr "Необходимо заполнить это поле"
 
-#: apps/home/templates/home/home.html:150 templates/layout/base.html:113
+#: apps/home/templates/home/home.html:142 templates/layout/base.html:110
 msgid "Поле має містити правильну електронну адресу"
 msgstr "Поле должно содержать правильный E-Mail адрес"
 
-#: apps/home/templates/home/home.html:154 templates/layout/base.html:117
+#: apps/home/templates/home/home.html:146 templates/layout/base.html:114
 msgid "Поле має містити щонайменше 10 символів"
 msgstr "Поле должно содержать минимум 10 символов"
+
+#: apps/products/templates/products/detail/_partials/product_info.html:13
+msgid "Вартість"
+msgstr "Стоимость"
+
+#: apps/products/templates/products/detail/_partials/product_info.html:16
+msgid ""
+"Зателефонуйте або залиште заявку для детального розрахунку вартості вашого "
+"замовлення."
+msgstr "Позвоните или оставьте заявки для детального просчёта стоимости заказа"
+
+#: apps/products/templates/products/detail/_partials/related_products.html:6
+msgid "Часто замовляють"
+msgstr "Часто заказывают"
+
+#: apps/products/templates/products/detail/_partials/tabs.html:7
+msgid "Характеристики"
+msgstr "Характеристики"
+
+#: apps/products/templates/products/detail/_partials/tabs.html:10
+msgid "Опис"
+msgstr "Описание"
 
 #: backend/settings.py:128
 msgid "Ukrainian"
@@ -493,6 +435,91 @@ msgstr "Украинский"
 #: backend/settings.py:129
 msgid "Russian"
 msgstr "Русский"
+
+#: templates/layout/_partials/header.html:58
+msgid "Ми у соцмережах"
+msgstr "Мы в соцсетях"
+
+#: templates/layout/_partials/header.html:131
+msgid "Оплата і доставка"
+msgstr "Оплата и доставка"
+
+#: templates/layout/_partials/order_modal_form.html:8
+msgid "Будь ласка, заповніть форму нижче для уточнення деталей"
+msgstr ""
+"Пожалуйста, заполните форму ниже и мы свяжемся с вами для уточнения деталей"
+
+#: templates/layout/_partials/order_modal_form.html:77
+msgid ""
+"<strong>Дякуємо!</strong> Ваше повідомлення було відправлене. Найближчим "
+"часом менеджер зв'яжеться з вами."
+msgstr ""
+"<strong>Спасибо!</strong> Ваше сообщение было отправлено. В ближайшее время "
+"мененджер свяжется с вами."
+
+#~ msgid "Оплата, доставка"
+#~ msgstr "Оплата, доставка"
+
+#, fuzzy, python-format
+#~| msgid ""
+#~| "Щоб отримати <span class=\"g-color-primary\">знижку 15%%</span>, "
+#~| "подзвоніть нам по телефону"
+#~ msgid ""
+#~ "Щоб отримати <span class=\"g-color-primary g-font-weight-600\">знижку "
+#~ "15%%</span>, подзвоніть нам по телефону"
+#~ msgstr ""
+#~ "Чтобы получить <span class=\"g-color-primary\">скидку 15%</span>, "
+#~ "позвоните нам по номеру"
+
+#, fuzzy, python-format
+#~| msgid ""
+#~| "Замовте прорахунок вартості для отримання <span class=\"g-color-"
+#~| "primary\">15%% знижки</span>"
+#~ msgid ""
+#~ "Замовте прорахунок вартості для отримання <span class=\"g-color-"
+#~ "primary\">15%% знижки</span>"
+#~ msgstr ""
+#~ "Закажите просчёт стоимости для получения <span class=\"g-color-"
+#~ "primary\">15% скидки</span>"
+
+#~ msgid ""
+#~ "Також знижку можна отримати зателефонувавши нашому менеджеру за номером"
+#~ msgstr "Также скидку можно получить позвонив нашему менеджеру по номеру"
+
+#~ msgid "Замовати розрахунок"
+#~ msgstr "Заказать просчёт"
+
+#~ msgid "Розробка дизайну поліграфії"
+#~ msgstr "Разработка дизайна полиграфии"
+
+#~ msgid "Розробка дизайну"
+#~ msgstr "Разработка дизайна"
+
+#~ msgid ""
+#~ "До ваших послуг команда професійних дизайнерів для швидкої розробки "
+#~ "макетів будь-якої складності"
+#~ msgstr ""
+#~ "К вашим услугам команда профессиональных дизайнеров для быстрой "
+#~ "разработки макетов любой сложности"
+
+#~ msgid "Друк поліграфії"
+#~ msgstr "Печать полиграфии"
+
+#~ msgid ""
+#~ "Офсетний та цифровий друк продукції будь-якої складності у будь-яких "
+#~ "обсягах."
+#~ msgstr ""
+#~ "Офсетная и цифровая печать продукции любой сложности в любых объёмах."
+
+#~ msgid "Доставка у термін"
+#~ msgstr "Доставка в срок"
+
+#~ msgid ""
+#~ "Зможемо відправити ваше замовлення будь-якою поштовою службою по Україні "
+#~ "або іншим, зручним для вас, способом."
+#~ msgstr ""
+#~ "Сможем отправить ваш заказ любым почтовым перевозчиком по Украине или "
+#~ "иным, удобным для вас, способом."
 
 #~ msgid "доставка інтаймом"
 #~ msgstr "доставка интаймом"
