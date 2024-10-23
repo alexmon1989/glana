@@ -7,7 +7,17 @@ class ProductTypeOptions(TranslationOptions):
 
 
 class ProductOptions(TranslationOptions):
-    fields = ('title', 'short_description', 'short_description_2', 'long_description', 'price_description')
+    fields = (
+        'title',
+        'short_description',
+        'short_description_2',
+        'long_description',
+        'price_description',
+        'meta_h1',
+        'meta_title',
+        'meta_description',
+        'meta_keywords'
+    )
 
 
 class ProductPropertyOptions(TranslationOptions):
