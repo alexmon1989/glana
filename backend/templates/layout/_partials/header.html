@@ -35,7 +35,7 @@
                         <div class="col-sm g-hidden-lg-down g-brd-right--sm g-brd-gray-light-v4">
                             <div class="g-pa-10--lg">
                                 <span class="g-valign-middle g-font-size-18 g-color-primary g-mr-5"><i class="fa fa-pencil"></i></span>
-                                <span class="text-uppercase g-font-size-13">{% trans 'Напишіть нам' %}</span>
+                                <span class="text-uppercase g-font-size-13">{% trans 'Напишіть нам у месенжер' %}</span>
 
                                 <ul class="list-inline g-pl-20 mb-0">
                                     <li class="list-inline-item g-valign-middle">
@@ -93,7 +93,7 @@
                             <a href="{% url 'home' %}" class="nav-link g-color-primary--hover p-0">{% trans 'Головна' %}</a>
                         </li>
 
-                        <li class="hs-has-mega-menu nav-item g-mx-15--lg g-mb-7 g-mb-0--lg active"
+                        <li class="hs-has-mega-menu nav-item g-mx-15--lg g-mb-7 g-mb-0--lg {% if 'products/' in request.path %}active{% endif %}"
                             data-animation-in="fadeIn"
                             data-animation-out="fadeOut"
                             data-position="right">
@@ -132,8 +132,8 @@
                             <a href="#" class="nav-link g-color-primary--hover p-0">{% trans 'Про нас' %}</a>
                         </li>
 
-                        <li class="nav-item g-mx-15--lg g-mb-7 g-mb-0--lg">
-                            <a href="#" class="nav-link g-color-primary--hover p-0">{% trans 'Оплата і доставка' %}</a>
+                        <li class="nav-item g-mx-15--lg g-mb-7 g-mb-0--lg {% if 'delivery/' in request.path %}active{% endif %}">
+                            <a href="{% url 'delivery:index' %}" class="nav-link g-color-primary--hover p-0">{% trans 'Доставка' %}</a>
                         </li>
 
                         <li class="nav-item g-mx-15--lg g-mb-7 g-mb-0--lg">

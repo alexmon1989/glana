@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'apps.products.apps.ProductsConfig',
     'apps.core.apps.CoreConfig',
     'apps.contacts.apps.ContactsConfig',
+    'apps.delivery.apps.DeliveryConfig',
 ]
 
 MIDDLEWARE = [

@@ -43,6 +43,7 @@ urlpatterns = [
 urlpatterns += i18n_patterns(
     path('', include('apps.home.urls')), 
     path('products/', include('apps.products.urls')), 
+    path('delivery/', include('apps.delivery.urls')),
     prefix_default_language=False
 )
 
