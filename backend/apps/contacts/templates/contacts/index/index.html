@@ -1,0 +1,35 @@
+{% extends 'layout/base.html' %}
+
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block meta_title %}{{ contact_data.meta_title|default:'' }}{% endblock %}
+{% block meta_keyword %}{{ contact_data.meta_keyword|default:'' }}{% endblock %}
+{% block meta_description %}{{ contact_data.meta_description|default:'' }}{% endblock %}
+
+{% block content %}
+    {% include 'contacts/index/_partials/breadcrumbs.html' %}
+
+    <section class="container g-pt-100 g-pb-40">
+        <div class="row justify-content-between">
+            {% if messages %}
+                <div class="col-md-12">
+                    <div class="alert alert-success" role="alert">
+                        {% for message in messages %}
+                            {{ message }}<br>
+                        {% endfor %}                        
+                    </div>
+                </div>                
+            {% endif %}
+            
+            <div class="col-md-7 g-mb-60">
+                {% crispy form %}
+            </div>
+
+            <div class="col-md-4">
+                {% include 'contacts/index/_partials/contacts.html' %}
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

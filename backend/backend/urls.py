@@ -44,6 +44,7 @@ urlpatterns += i18n_patterns(
     path('', include('apps.home.urls')), 
     path('products/', include('apps.products.urls')), 
     path('delivery/', include('apps.delivery.urls')),
+    path('contacts/', include('apps.contacts.urls')),
     prefix_default_language=False
 )
 

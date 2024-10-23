@@ -1,9 +1,11 @@
+from ckeditor.fields import RichTextField
 from django.db import models
-from apps.core.models import CacheClearModel
+from apps.core.models import SeoModel
 
 
-class ContactData(CacheClearModel):
+class ContactData(SeoModel):
     """Модель контактных данных"""
+    address = RichTextField('Адрес', blank=True, null=True)
     contact_email = models.EmailField('E-Mail для контактов')
     form_email = models.EmailField('E-Mail для форм', max_length=255)
     phone = models.CharField('Телефон', max_length=255)

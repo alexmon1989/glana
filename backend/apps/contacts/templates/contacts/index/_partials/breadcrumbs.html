@@ -1,0 +1,16 @@
+{% load i18n %}
+
+<section class="g-brd-bottom g-brd-gray-light-v4 g-py-20">
+    <div class="container">
+        <ul class="u-list-inline">
+            <li class="list-inline-item g-mr-5">
+                <a class="u-link-v5 g-color-gray-dark-v3 g-color-primary--hover"
+                   href="{% url 'home' %}">{% trans 'Головна' %}</a>
+                <i class="g-color-gray-light-v2 g-ml-5 fa fa-angle-right"></i>
+            </li>
+            <li class="list-inline-item g-color-primary g-font-weight-600">
+                <span>{{ contact_data.meta_h1 }}</span>
+            </li>
+        </ul>
+    </div>
+</section>

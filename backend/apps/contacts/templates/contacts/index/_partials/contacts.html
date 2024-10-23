@@ -1,0 +1,62 @@
+{% load i18n %}
+{% load project_extras %}
+{% load static %}
+
+<h1 class="g-font-weight-300 mb-5">{{ contact_data.meta_h1 }}</h1>
+
+<div class="mb-4">
+    <h2 class="h5 g-color-gray-dark-v2 g-font-weight-600">{% trans 'Адреса' %}:</h2>
+    {{ contact_data.address|safe }}
+</div>
+
+<div class="mb-4">
+    <h2 class="h5 g-color-gray-dark-v2 g-font-weight-600">E-Mail:</h2>
+    <p class="g-color-gray-dark-v4">
+        <a class="g-color-gray-dark-v2"
+           href="mailto:{{ contact_data.contact_email }}"
+        >{{ contact_data.contact_email }}</a>
+    </p>
+</div>
+
+<div class="mb-4">
+    <h2 class="h5 g-color-gray-dark-v2 g-font-weight-600">{% trans 'Телефон' %}:</h2>
+    <p class="g-color-gray-dark-v4 mb-2 g-font-size-16"><a href="tel:{{ contact_data.phone|clear_number }}">{{ contact_data.phone }}</a></p>
+
+    <ul class="list-inline mb-0">
+        <li class="list-inline-item g-valign-middle">
+            <a href="https://t.me/{{ contact_data.phone|clear_number }}" target="_blank">
+                <img class="g-height-30" src="{% static 'img/icons/icons8-telegram.svg' %}" alt="">
+            </a>
+        </li>
+        <li class="list-inline-item g-valign-middle">
+            <a href="viber://chat?number={{ contact_data.phone|clear_number }}">
+                <img class="g-height-30" src="{% static 'img/icons/icons8-viber.svg' %}" alt="">
+            </a>
+        </li>
+    </ul>
+</div>
+
+<div class="mb-4">
+    <h2 class="h5 g-color-gray-dark-v2 g-font-weight-600">{% trans 'Соцмережі' %}:</h2>
+
+    <ul class="list-inline">
+        {% if contact_data.instagram_link %}
+            <li class="list-inline-item g-mx-4">
+                <a class="u-icon-v1 g-color-gray-dark-v5 g-bg-gray-light-v5 g-color-white--hover g-bg-primary--hover rounded-circle"
+                   href="{{ contact_data.instagram_link }}">
+                    <i class="g-font-size-default fa fa-instagram"></i>
+                </a>
+            </li>
+        {% endif %}
+
+        {% if contact_data.fb_link %}
+            <li class="list-inline-item">
+                <a class="u-icon-v1 g-color-gray-dark-v5 g-bg-gray-light-v5 g-color-white--hover g-bg-primary--hover rounded-circle"
+                   href="{{ contact_data.fb_link }}">
+                    <i class="g-font-size-default fa fa-facebook"></i>
+                </a>
+            </li>
+        {% endif %}
+    </ul>
+</div>
+
