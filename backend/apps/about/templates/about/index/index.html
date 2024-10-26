@@ -1,0 +1,26 @@
+{% extends 'layout/base.html' %}
+
+{% load i18n %}
+
+{% block meta_title %}{{ page.meta_title|default:'' }}{% endblock %}
+{% block meta_keyword %}{{ page.meta_keyword|default:'' }}{% endblock %}
+{% block meta_description %}{{ page.meta_description|default:'' }}{% endblock %}
+
+{% block content %}
+    {% include 'about/index/_partials/breadcrumbs.html' %}
+
+    <section class="container g-py-50">
+
+        <div class="row">
+            <div class="col-12">
+                <div class="g-mb-30 text-center">
+                    <h1 class="g-font-weight-600 mb-4">{{ page.meta_h1 }}</h1>
+                </div>
+
+                {{ page.content|safe }}
+
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

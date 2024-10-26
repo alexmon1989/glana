@@ -94,16 +94,16 @@
                             <a href="#products" class="nav-link g-color-primary--hover p-0">{% trans 'Продукція' %}</a>
                         </li>
                         <li class="nav-item g-mx-15--lg g-mb-7 g-mb-0--lg">
-                            <a href="сontacts/" class="nav-link g-color-primary--hover p-0">{% trans 'Про нас' %}</a>
+                            <a href="{% url 'about:index' %}" class="nav-link g-color-primary--hover p-0">{% trans 'Про нас' %}</a>
                         </li>
                         <li class="nav-item g-mx-15--lg g-mb-7 g-mb-0--lg">
                             <a href="#job_scheme" class="nav-link g-color-primary--hover p-0">{% trans 'Схема роботи' %}</a>
                         </li>
                         <li class="nav-item g-mx-15--lg g-mb-7 g-mb-0--lg">
-                            <a href="#delivery" class="nav-link g-color-primary--hover p-0">{% trans 'Доставка' %}</a>
+                            <a href="{% url 'delivery:index' %}" class="nav-link g-color-primary--hover p-0">{% trans 'Доставка' %}</a>
                         </li>
                         <li class="nav-item g-mx-15--lg g-mb-7 g-mb-0--lg">
-                            <a href="#contacts" class="nav-link g-color-primary--hover p-0">{% trans 'Контакти' %}</a>
+                            <a href="{% url 'contacts:index' %}" class="nav-link g-color-primary--hover p-0">{% trans 'Контакти' %}</a>
                         </li>
                     </ul>
                 </div>

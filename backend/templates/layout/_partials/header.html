@@ -128,8 +128,8 @@
                             <!-- End Mega Menu -->
                         </li>
 
-                        <li class="nav-item g-mx-15--lg g-mb-7 g-mb-0--lg">
-                            <a href="#" 
+                        <li class="nav-item g-mx-15--lg g-mb-7 g-mb-0--lg {% if 'about/' in request.path %}active{% endif %}">
+                            <a href="{% url 'about:index' %}" 
                                class="nav-link g-color-primary--hover p-0">{% trans 'Про нас' %}</a>
                         </li>
 

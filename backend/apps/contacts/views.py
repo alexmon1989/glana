@@ -3,7 +3,6 @@ from django.views.generic.edit import FormView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.utils.translation import gettext_lazy as _
 
-
 from .models import ContactData
 from .forms import ContactsForm
 
