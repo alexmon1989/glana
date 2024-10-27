@@ -19,7 +19,7 @@
                 <tbody>
                     {% for property in product.productproperty_set.all %}
                         <tr>
-                            <td width="30%" class="g-nowrap">
+                            <td width="30%" class="g-nowrap g-font-weight-600">
                                 <i class="fa fa-check-square g-color-primary g-mr-5"></i>{{ property.title|safe }}
                             </td>
                             <td>{{ property.value }}</td>

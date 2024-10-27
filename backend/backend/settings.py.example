@@ -223,7 +223,7 @@ CKEDITOR_CONFIGS = {
 THUMBNAIL_ALIASES = {
     '': {
         'product_sm': {'size': (400, 270), 'crop': True},
-        'product_lg': {'size': (900, 600), 'crop': False},
+        'product_lg': {'size': (600, 750), 'crop': True},
     },
 }
 

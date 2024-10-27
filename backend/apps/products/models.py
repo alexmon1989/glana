@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from easy_thumbnails.fields import ThumbnailerImageField
 from ckeditor_uploader.fields import RichTextUploadingField
 
@@ -59,12 +60,15 @@ class Product(SeoModel, TimeStampedModel, CacheClearModel):
     )
     is_enabled = models.BooleanField('Включено', default=True)
     types = models.ManyToManyField(ProductType, verbose_name='Тип продукта')
-    related_products = models.ManyToManyField('self', symmetrical=False, verbose_name='Связанные продукты')
+    related_products = models.ManyToManyField('self', symmetrical=False, verbose_name='Связанные продукты', blank=True)
 
     objects = ProductManager()
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('products:detail', kwargs={'slug': self.slug})
 
     def get_types_string(self):
         return ' '.join([x.slug for x in self.types.all()])

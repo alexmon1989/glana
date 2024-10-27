@@ -1,6 +1,8 @@
 from django.contrib import admin
 from modeltranslation.admin import TranslationAdmin, TranslationTabularInline
 from singlemodeladmin import SingleModelAdmin
+
+from .forms import ProductForm
 from .models import Product, ProductType, ProductProperty, DeliveryPaymentDescription
 
 
@@ -20,12 +22,13 @@ class ProductTypeAdmin(TranslationAdmin):
 @admin.register(Product)
 class ProductAdmin(TranslationAdmin):
     """Класс для описания интерфейса администрирования продуктов."""
+    form = ProductForm
     list_display = ('title', 'is_enabled', 'created_at', 'updated_at')
-    search_fields = ('title',)
+    search_fields = ('title_uk', 'title_ru',)
     list_editable = ('is_enabled',)
     list_filter = ('types',)
     prepopulated_fields = {"slug": ("title",)}
-    autocomplete_fields = ['related_products']
+    # autocomplete_fields = ['related_products']
     inlines = [
         ProductPropertyInline,
     ]

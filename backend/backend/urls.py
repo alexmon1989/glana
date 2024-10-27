@@ -21,10 +21,11 @@ from django.conf.urls.static import static
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib.sitemaps.views import sitemap
 
-from .sitemaps import StaticViewSitemap
+from .sitemaps import StaticViewSitemap, ProductsSitemap
 
 sitemaps = {
     "static": StaticViewSitemap,
+    "products": ProductsSitemap,
 }
 
 urlpatterns = [
