@@ -1,0 +1,38 @@
+{# The provided implementation caters for only one reCAPTCHA on a page. Override this template and its logic as needed. #}
+<script src="https://{{ recaptcha_domain }}/recaptcha/api.js?render={{ public_key }}{% if api_params %}&{{ api_params }}{% endif %}"></script>
+<script>
+    (function() {
+        grecaptcha.ready(function() {
+            // Находим конкретный элемент этой капчи по его UUID
+            var element = document.querySelector('.g-recaptcha[data-widget-uuid="{{ widget_uuid }}"]');
+            if (!element) return;
+            
+            var form = element.form;
+            var isBusy = false;
+
+            // Навешиваем обработчик на форму, к которой принадлежит этот элемент
+            form.addEventListener('submit', function(event) {
+                if (isBusy) return;
+                
+                event.preventDefault();
+                isBusy = true;
+
+                grecaptcha.execute('{{ public_key }}', {% if action %}{action: '{{ action|escape }}'}{% else %}{}{% endif %})
+                .then(function(token) {
+                    console.log("reCAPTCHA v3: Токен получен для виджета {{ widget_uuid }}");
+                    element.value = token;
+                    
+                    // Сабмитим форму через jQuery, чтобы сработал плагин ajaxForm
+                    $(form).submit();
+                    
+                    // Сбрасываем флаг занятости
+                    isBusy = false;
+                })
+                .catch(function(error) {
+                    console.error("reCAPTCHA v3 Error ({{ widget_uuid }}):", error);
+                    isBusy = false;
+                });
+            });
+        });
+    })();
+</script>

@@ -5,6 +5,7 @@ from django.utils.translation import gettext_lazy as _
 
 from .models import ContactData
 from .forms import ContactsForm
+from apps.home.forms import OrderForm
 
 
 class ContactFormView(SuccessMessageMixin, FormView):
@@ -17,6 +18,7 @@ class ContactFormView(SuccessMessageMixin, FormView):
         context = super().get_context_data(**kwargs)
         contact_data, created = ContactData.objects.get_or_create()
         context['contact_data'] = contact_data
+        context['order_form'] = OrderForm()
         return context
 
     def form_valid(self, form):

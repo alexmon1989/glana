@@ -103,7 +103,7 @@
             item.ajaxForm({
                 beforeSubmit: function () {
                     if (item.valid()) {
-                        item.find(':input').attr("disabled", true);
+                        item.find(':input').not('[type="hidden"]').attr("disabled", true);
                         return true;
                     }
                     return false;
@@ -112,9 +112,22 @@
                     item.hide();
                     item.next().show();
                 },
-                error: function () {
-                    alert('Ошибка сервера!');
-                    item.find(':input').attr("disabled", false);
+                error: function (xhr) {
+                    item.find(':input').not('[type="hidden"]').attr("disabled", false);
+                    item.find('.form-server-error').remove();
+                    
+                    if (xhr.responseJSON && xhr.responseJSON.errors) {
+                        var errorHtml = '<div class="alert alert-danger form-server-error g-mb-20"><ul class="mb-0 list-unstyled">';
+                        for (var field in xhr.responseJSON.errors) {
+                            xhr.responseJSON.errors[field].forEach(function(msg) {
+                                errorHtml += '<li>' + msg + '</li>';
+                            });
+                        }
+                        errorHtml += '</ul></div>';
+                        item.prepend(errorHtml);
+                    } else {
+                        alert('Ошибка сервера!');
+                    }
                 }
             });
         });

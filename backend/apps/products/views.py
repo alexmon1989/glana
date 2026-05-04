@@ -1,6 +1,7 @@
 from django.views.generic.detail import DetailView
 
 from .models import Product, DeliveryPaymentDescription
+from apps.home.forms import OrderForm
 
 
 class ProductDetailView(DetailView):
@@ -11,4 +12,5 @@ class ProductDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['delivery_desc'] = DeliveryPaymentDescription.objects.first()
+        context['order_form'] = OrderForm()
         return context

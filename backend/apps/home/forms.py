@@ -1,4 +1,6 @@
 from django import forms
+from django_recaptcha.fields import ReCaptchaField
+from apps.core.widgets import CustomReCaptchaV3
 from .tasks import send_email
 
 
@@ -9,6 +11,7 @@ class OrderForm(forms.Form):
     email = forms.EmailField(max_length=255)
     message = forms.CharField(max_length=1024)
     file = forms.FileField(max_length=5242880, required=False)
+    captcha = ReCaptchaField(widget=CustomReCaptchaV3(action='order'))
 
     def send_email(self):
         # Асинхронная отправка E-Mail
@@ -20,3 +23,8 @@ class OrderForm(forms.Form):
                 'content_type': self.cleaned_data['file'].content_type,
             }
         send_email.delay(data)
+
+
+class OrderFormModal(OrderForm):
+    """Класс формы просчёта заказа."""
+    captcha = ReCaptchaField(widget=CustomReCaptchaV3(action='order'))
