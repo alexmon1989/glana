@@ -2,6 +2,8 @@ from django import forms
 
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Div, Layout, Row, Column
+from django_recaptcha.fields import ReCaptchaField
+from django_recaptcha.widgets import ReCaptchaV3
 
 from .tasks import send_email
 
@@ -12,6 +14,7 @@ class ContactsForm(forms.Form):
     subject = forms.CharField(max_length=255, required=False, label='Тема повідомлення')
     phone = forms.CharField(max_length=255, required=False, label='Ваш телефон')
     message = forms.CharField(min_length=10, max_length=1024, label='Текст повідомлення', widget=forms.Textarea)
+    captcha = ReCaptchaField(widget=ReCaptchaV3)
 
     def send_email(self):
         # Асинхронная отправка E-Mail
@@ -54,5 +57,6 @@ class ContactsForm(forms.Form):
             Row(
                 Column('message', css_class='col-md-12 g-mb-20'),
             ),
+            Column('captcha'),
             Div(template='contacts/index/_partials/submit.html')
         )
