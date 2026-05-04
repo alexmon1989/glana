@@ -3,18 +3,23 @@
 <script>
     (function() {
         grecaptcha.ready(function() {
-            // Находим конкретный элемент этой капчи по его UUID
             var element = document.querySelector('.g-recaptcha[data-widget-uuid="{{ widget_uuid }}"]');
             if (!element) return;
             
             var form = element.form;
             var isBusy = false;
+            var readyToSubmit = false;
 
-            // Навешиваем обработчик на форму, к которой принадлежит этот элемент
             form.addEventListener('submit', function(event) {
-                if (isBusy) return;
-                
+                if (readyToSubmit) {
+                    readyToSubmit = false;
+                    return;
+                }
+
                 event.preventDefault();
+                event.stopImmediatePropagation();
+
+                if (isBusy) return;
                 isBusy = true;
 
                 grecaptcha.execute('{{ public_key }}', {% if action %}{action: '{{ action|escape }}'}{% else %}{}{% endif %})
@@ -22,17 +27,15 @@
                     console.log("reCAPTCHA v3: Токен получен для виджета {{ widget_uuid }}");
                     element.value = token;
                     
-                    // Сабмитим форму через jQuery, чтобы сработал плагин ajaxForm
-                    $(form).submit();
-                    
-                    // Сбрасываем флаг занятости
                     isBusy = false;
+                    readyToSubmit = true;
+                    $(form).submit();
                 })
                 .catch(function(error) {
                     console.error("reCAPTCHA v3 Error ({{ widget_uuid }}):", error);
                     isBusy = false;
                 });
-            });
+            }, true);
         });
     })();
 </script>
