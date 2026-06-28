@@ -10,9 +10,11 @@ services:
       - ./frontend:/frontend:ro
       - ./static:/static
       - ./media:/media
-      - ./database:/database
     ports:
       - "8000:8000"
+    depends_on:
+      - db
+      - redis
   redis:
     # restart: always
     image: redis:latest
@@ -26,7 +28,20 @@ services:
       - C_FORCE_ROOT=true
     container_name: fregat_celery
     command: celery worker -A backend --loglevel=info
-    volumes:
-      - ./database:/database
     depends_on:
+      - db
       - redis
+
+  db:
+    # restart: always
+    image: postgres:16-alpine
+    container_name: fregat_db
+    environment:
+      - POSTGRES_DB=glana
+      - POSTGRES_USER=glana_user
+      - POSTGRES_PASSWORD=glana_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

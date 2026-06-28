@@ -13,3 +13,5 @@ django-modeltranslation==0.18.11
 crispy-bootstrap5==2024.10
 django-crispy-forms==2.3
 django-recaptcha==4.0.0
+python-dotenv==1.0.1
+psycopg2-binary==2.9.9

@@ -37,7 +37,7 @@ $g-bg-color-main: #fff !default;
 
 // Primary Color
 //$g-color-primary: #72c02c !default;
-$g-color-primary: #e663a9 !default;
+$g-color-primary: #007B8A !default;
 $g-color-primary-dark-v1: darken($g-color-primary, 2%) !default;
 $g-color-primary-dark-v2: darken($g-color-primary, 5%) !default;
 $g-color-primary-dark-v3: darken($g-color-primary, 10%) !default;
@@ -72,24 +72,24 @@ $g-color-gray-dark-v5: #999 !default;
 // Status Colors
 
 // Color Success
-$g-color-success:             #5cb85c !default;
-$g-color-success-dark-v1:     darken($g-color-success, 2%) !default;
-$g-color-success-dark-v2:     darken($g-color-success, 5%) !default;
+$g-color-success: #5cb85c !default;
+$g-color-success-dark-v1: darken($g-color-success, 2%) !default;
+$g-color-success-dark-v2: darken($g-color-success, 5%) !default;
 
 // Color Info
-$g-color-info:                #5bc0de !default;
-$g-color-info-dark-v1:        darken($g-color-info, 2%) !default;
-$g-color-info-dark-v2:        darken($g-color-info, 5%) !default;
+$g-color-info: #5bc0de !default;
+$g-color-info-dark-v1: darken($g-color-info, 2%) !default;
+$g-color-info-dark-v2: darken($g-color-info, 5%) !default;
 
 // Color Warning
-$g-color-warning:             #f0ad4e !default;
-$g-color-warning-dark-v1:     darken($g-color-warning, 2%) !default;
-$g-color-warning-dark-v2:     darken($g-color-warning, 5%) !default;
+$g-color-warning: #f0ad4e !default;
+$g-color-warning-dark-v1: darken($g-color-warning, 2%) !default;
+$g-color-warning-dark-v2: darken($g-color-warning, 5%) !default;
 
 // Color Danger
-$g-color-danger:              #d9534f !default;
-$g-color-danger-dark-v1:      darken($g-color-danger, 2%) !default;
-$g-color-danger-dark-v2:      darken($g-color-danger, 5%) !default;
+$g-color-danger: #d9534f !default;
+$g-color-danger-dark-v1: darken($g-color-danger, 2%) !default;
+$g-color-danger-dark-v2: darken($g-color-danger, 5%) !default;
 
 
 //

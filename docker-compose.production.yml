@@ -2,31 +2,54 @@ version: '3'
 
 services:
   web:
-    # restart: always
-    build: .
-    container_name: fregat_web
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile.production
+    container_name: krapka_web
+    env_file:
+      - .env
     command: /bin/sh -c "python manage.py makemigrations && python manage.py migrate && gunicorn backend.wsgi -b 0.0.0.0:8000 -w 3"
     volumes:
       - ./frontend:/frontend:ro
       - ./static:/static
       - ./media:/media
-      - ./database:/database
     ports:
       - "8000:8000"
+    depends_on:
+      - db
+      - redis
   redis:
-    # restart: always
+    restart: always
     image: redis:latest
-    container_name: fregat_redis
+    container_name: krapka_redis
+    command: --port 6380
     ports:
-      - "6379:6379"
+      - "6380:6380"
   celery:
-    # restart: always
-    build: .
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile.production
+    env_file:
+      - .env
     environment:
       - C_FORCE_ROOT=true
-    container_name: fregat_celery
+    container_name: krapka_celery
     command: celery -A backend worker --loglevel=info
-    volumes:
-      - ./database:/database
     depends_on:
+      - db
       - redis
+
+  db:
+    image: postgres:16-alpine
+    container_name: krapka_db
+    restart: always
+    env_file:
+      - .env
+    environment:
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+    volumes:
+      - ./database:/var/lib/postgresql/data
