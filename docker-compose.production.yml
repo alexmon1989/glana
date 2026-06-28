@@ -1,6 +1,28 @@
 version: '3'
 
 services:
+  nginx:
+    restart: always
+    image: 'umputun/nginx-le:latest'
+    hostname: nginx
+    container_name: krapka_nginx
+    volumes:
+      - './static:/static'
+      - './media:/media'
+      - './etc/ssl:/etc/nginx/ssl'
+      - ./etc/service.conf:/etc/nginx/service.conf
+      # - ./etc/service-example-2.conf:/etc/nginx/service2.conf # more services, should be service*.conf
+      # - ./etc/stream-example-2.conf:/etc/nginx/stream2.conf # more streams, should be stream*.conf
+      # - ./etc/conf.d:/etc/nginx/conf.d-le # configuration folder, all files from it will be added
+      # - ./etc/stream.conf:/etc/nginx/stream.conf.d-le # streams configuration folder, all files from it will be added
+    ports:
+      - '80:80'
+      - '443:443'
+    environment:
+      - TZ=Europe/Kyiv
+      - LETSENCRYPT=true
+      - LE_EMAIL=alex.mon1989@gmail.com
+      - LE_FQDN=krapka.kiev.ua
   web:
     restart: always
     build:
@@ -52,4 +74,7 @@ services:
       - POSTGRES_USER=${DB_USER}
       - POSTGRES_PASSWORD=${DB_PASSWORD}
     volumes:
-      - ./database:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
